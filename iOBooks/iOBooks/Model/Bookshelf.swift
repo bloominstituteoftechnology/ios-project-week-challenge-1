@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct Bookshelf {
+class Bookshelf {
     let name: String
     var books: [Book] = []
     

@@ -251,8 +251,7 @@
                                                     <rect key="frame" x="301" y="0.0" width="42" height="277.5"/>
                                                     <state key="normal" title="Remove"/>
                                                     <connections>
-                                                        <action selector="addToBookshelfButton:" destination="meB-A9-L5g" eventType="touchUpInside" id="OfH-hj-CxR"/>
-                                                        <action selector="removeButton:" destination="meB-A9-L5g" eventType="touchUpInside" id="0aH-5Y-gbc"/>
+                                                        <action selector="removeButton:" destination="meB-A9-L5g" eventType="touchUpInside" id="wcK-Va-Stu"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -270,10 +269,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="bookImage" destination="dHB-Fb-Ci1" id="na6-cB-XPu"/>
-                                    <outlet property="bookName" destination="pXb-VZ-kH8" id="bVB-1s-i7a"/>
-                                    <outlet property="bookNameLabel" destination="pXb-VZ-kH8" id="IzU-wP-oMi"/>
-                                    <outlet property="bookShelfButton" destination="TBi-la-zHD" id="Q4b-Dm-hKA"/>
+                                    <outlet property="bookImage" destination="dHB-Fb-Ci1" id="9Vq-mV-5pm"/>
+                                    <outlet property="bookName" destination="pXb-VZ-kH8" id="3DS-Uk-XXe"/>
                                     <segue destination="r3L-Jo-XUy" kind="show" identifier="toBookDetailVC" id="oyd-qn-Ouu"/>
                                 </connections>
                             </tableViewCell>
@@ -371,7 +368,7 @@
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WTR-tM-zMq">
                                         <rect key="frame" x="37.5" y="72.5" width="240" height="128"/>
-                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
