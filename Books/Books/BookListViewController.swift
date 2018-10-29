@@ -1,4 +1,5 @@
 import UIKit
+import SDWebImage
 
 class BookListViewController: UIViewController {
 
@@ -24,7 +25,7 @@ class BookListViewController: UIViewController {
     }
     
     fileprivate func getBookData(){
-        BookController.shared.getBookData(searchTerm: "dog") { (books) in
+        BookController.shared.getBookData(searchTerm: "") { (books) in
             DispatchQueue.main.async {
                 self.books = books as! [Book]
                 self.bookListTableView.reloadData()
