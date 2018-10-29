@@ -18,6 +18,11 @@ class BookController {
     func newBook(name: String, image: String) -> Book {
         return Book(name: name, image: image)
     }
+    
+    func newShelf(name: String, books: [Book]) {
+        let shelf = Bookshelf(name: name, books: books)
+        bookshelves.append(shelf)
+    }
 
     func search(term: String, completion: @escaping () -> Void = {}) {
         guard

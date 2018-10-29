@@ -10,27 +10,44 @@ import UIKit
 
 class BookShelvesTVC: UITableViewController {
 
-    // MARK: - Table view data source
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if BookController.shared.bookshelves.count < 2 {
+            BookController.shared.newShelf(name: "Favorites", books: [])
+            BookController.shared.newShelf(name: "Read", books: [])
+        }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        print("tableReloaded, favoritescount = \(BookController.shared.bookshelves[0].books.count)")
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return BookController.shared.bookshelves.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "bookshelvesCell", for: indexPath)
 
-        // Configure the cell...
-
+        let shelf = BookController.shared.bookshelves[indexPath.row]
+        
+        cell.textLabel?.text = shelf.name
+        cell.detailTextLabel?.text = String(shelf.books.count)
         return cell
     }
-    */
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? BooksTVC else {return}
+        guard let indexPath = tableView.indexPathForSelectedRow else {return}
+        destination.bookshelf = BookController.shared.bookshelves[indexPath.row]
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -66,6 +83,6 @@ class BookShelvesTVC: UITableViewController {
         return true
     }
     */
-
+    
 
 }

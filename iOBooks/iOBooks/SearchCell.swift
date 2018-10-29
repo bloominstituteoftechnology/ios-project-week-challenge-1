@@ -11,11 +11,18 @@ import UIKit
 
 class SearchCell: UITableViewCell {
     
+    var delegate: SearchCellDelegate?
+    
     @IBOutlet weak var bookShelfButton: UIButton!
     @IBOutlet weak var bookImage: UIImageView!
     @IBOutlet weak var bookNameLabel: UILabel!
     @IBAction func addToBookshelfButton(_ sender: Any) {
-        
-        
+        delegate?.addBookButtonPressed(on: self)
     }
+    
+
+}
+
+protocol SearchCellDelegate {
+    func addBookButtonPressed(on cell: UITableViewCell)
 }

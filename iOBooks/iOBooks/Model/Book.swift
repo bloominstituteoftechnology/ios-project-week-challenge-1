@@ -11,11 +11,12 @@ import Foundation
 
 struct Book {
     let name: String
-    let image: String
+    let image: String?
     var review: String?
     var read: Bool
     
     var bookshelves: [Bookshelf] = []
+    
     
     init(name: String, image: String, review: String? = "", read: Bool = false) {
         (self.name, self.image, self.review, self.read) = (name, image, review, read)

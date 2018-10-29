@@ -12,4 +12,8 @@ import Foundation
 struct Bookshelf {
     let name: String
     var books: [Book] = []
+    
+    init(name: String, books: [Book]) {
+        (self.name, self.books) = (name, books)
+    }
 }
