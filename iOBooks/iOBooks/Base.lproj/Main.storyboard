@@ -222,15 +222,59 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BooksCell" id="efb-PN-ndZ">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BooksCell" rowHeight="300" id="meB-A9-L5g" customClass="BookCell" customModule="iOBooks" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="efb-PN-ndZ" id="45c-hz-c9J">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="meB-A9-L5g" id="XGV-lG-mnC">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="299.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleAspectFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="0Iw-pI-m1Q">
+                                            <rect key="frame" x="16" y="11" width="343" height="277.5"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dHB-Fb-Ci1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="277.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="huO-nx-CE0"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXb-VZ-kH8">
+                                                    <rect key="frame" x="130" y="0.0" width="141" height="277.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="141" id="WiO-7y-yKu"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBi-la-zHD">
+                                                    <rect key="frame" x="301" y="0.0" width="42" height="277.5"/>
+                                                    <state key="normal" title="Remove"/>
+                                                    <connections>
+                                                        <action selector="addToBookshelfButton:" destination="meB-A9-L5g" eventType="touchUpInside" id="OfH-hj-CxR"/>
+                                                        <action selector="removeButton:" destination="meB-A9-L5g" eventType="touchUpInside" id="0aH-5Y-gbc"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="TBi-la-zHD" secondAttribute="trailing" id="AXK-8Q-FG1"/>
+                                                <constraint firstItem="dHB-Fb-Ci1" firstAttribute="leading" secondItem="0Iw-pI-m1Q" secondAttribute="leading" id="bny-We-Rnd"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="0Iw-pI-m1Q" firstAttribute="top" secondItem="XGV-lG-mnC" secondAttribute="topMargin" id="Iua-3K-4Pb"/>
+                                        <constraint firstItem="0Iw-pI-m1Q" firstAttribute="centerY" secondItem="XGV-lG-mnC" secondAttribute="centerY" id="NJV-eH-z0A"/>
+                                        <constraint firstItem="0Iw-pI-m1Q" firstAttribute="leading" secondItem="XGV-lG-mnC" secondAttribute="leadingMargin" id="hxZ-iW-nxd"/>
+                                        <constraint firstItem="0Iw-pI-m1Q" firstAttribute="centerX" secondItem="XGV-lG-mnC" secondAttribute="centerX" id="nce-An-BFM"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="r3L-Jo-XUy" kind="show" id="TUc-v8-qdm"/>
+                                    <outlet property="bookImage" destination="dHB-Fb-Ci1" id="na6-cB-XPu"/>
+                                    <outlet property="bookName" destination="pXb-VZ-kH8" id="bVB-1s-i7a"/>
+                                    <outlet property="bookNameLabel" destination="pXb-VZ-kH8" id="IzU-wP-oMi"/>
+                                    <outlet property="bookShelfButton" destination="TBi-la-zHD" id="Q4b-Dm-hKA"/>
+                                    <segue destination="r3L-Jo-XUy" kind="show" identifier="toBookDetailVC" id="oyd-qn-Ouu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

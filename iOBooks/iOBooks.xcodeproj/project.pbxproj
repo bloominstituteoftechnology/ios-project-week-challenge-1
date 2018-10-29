@@ -21,6 +21,7 @@
 		113435EF21877957000FCA4D /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113435EE21877957000FCA4D /* Book.swift */; };
 		113435F1218784F2000FCA4D /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113435F0218784F2000FCA4D /* SearchCell.swift */; };
 		113435F32187BC8A000FCA4D /* CreateBookshelfVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113435F22187BC8A000FCA4D /* CreateBookshelfVC.swift */; };
+		1199EF0A2187CAB700D6FA52 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1199EF092187CAB700D6FA52 /* BookCell.swift */; };
 		11A227022187BEC7005CC829 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A227012187BEC7005CC829 /* ImageLoader.swift */; };
 		11A227042187C2F7005CC829 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A227032187C2F7005CC829 /* ReviewVC.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		113435EE21877957000FCA4D /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		113435F0218784F2000FCA4D /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		113435F22187BC8A000FCA4D /* CreateBookshelfVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBookshelfVC.swift; sourceTree = "<group>"; };
+		1199EF092187CAB700D6FA52 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		11A227012187BEC7005CC829 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		11A227032187C2F7005CC829 /* ReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +81,7 @@
 				11A227012187BEC7005CC829 /* ImageLoader.swift */,
 				113435C521876E97000FCA4D /* AppDelegate.swift */,
 				113435C921876E97000FCA4D /* Main.storyboard */,
+				1199EF092187CAB700D6FA52 /* BookCell.swift */,
 				113435F0218784F2000FCA4D /* SearchCell.swift */,
 				113435EA218778DF000FCA4D /* Model */,
 				113435EB218778E5000FCA4D /* Model Controller */,
@@ -202,6 +205,7 @@
 				113435F32187BC8A000FCA4D /* CreateBookshelfVC.swift in Sources */,
 				113435EF21877957000FCA4D /* Book.swift in Sources */,
 				113435D821877024000FCA4D /* BookShelvesTVC.swift in Sources */,
+				1199EF0A2187CAB700D6FA52 /* BookCell.swift in Sources */,
 				113435E9218778DA000FCA4D /* BookController.swift in Sources */,
 				11A227042187C2F7005CC829 /* ReviewVC.swift in Sources */,
 				113435ED2187790A000FCA4D /* Bookshelf.swift in Sources */,

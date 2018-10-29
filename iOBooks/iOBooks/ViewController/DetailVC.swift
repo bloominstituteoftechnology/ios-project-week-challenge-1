@@ -14,10 +14,11 @@ class DetailVC: UIViewController {
         super.viewDidLoad()
 
     }
-    
+    var book: Book?
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? ReviewVC
+        guard let destination = segue.destination as? ReviewVC else {return}
+        
     }
 
 
