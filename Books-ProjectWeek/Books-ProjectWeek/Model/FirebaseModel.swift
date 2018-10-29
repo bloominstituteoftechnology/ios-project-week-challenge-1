@@ -9,13 +9,13 @@
 import Foundation
 
 protocol Firebase {
-    func addTag(id: String, tag: String) throws -> Void
-    func delTag(id: String, tag: String) throws -> Void
-    func markRead(id: String, read: Bool) throws -> Void
+    func addTag(id: String, tag: String) -> Void
+    func delTag(id: String, tag: String)  -> Void
+    func markRead(id: String, read: Bool) -> Void
 
-    func createShelf(name: String) throws -> Void
-    func deleteShelf(name: String) throws -> Void
-    func addBookToShelf(name: String, id: String) throws -> Void
+    func createShelf(name: String)  -> Void
+    func deleteShelf(name: String) -> Void
+    func addBookToShelf(name: String, id: String) -> Void
 }
 
 struct TaggedBook: Codable {

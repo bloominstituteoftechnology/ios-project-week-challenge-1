@@ -1,12 +1,17 @@
 import Foundation
 
 protocol API {
-    func search(query: String, completion: @escaping (SearchResults?, Error?) -> Void) throws -> Void
+    func search(query: String, completion: @escaping (SearchResults?, Error?) -> Void) -> Void
 }
 
 class FakeAPI: API {
-    func search(query: String, completion: @escaping (SearchResults?, Error?) -> Void) throws -> Void {
-        completion(SearchResults(items: []), nil)
+    func search(query: String, completion: @escaping (SearchResults?, Error?) -> Void) -> Void {
+        completion(SearchResults(items:[Volume(id: "blah", info: VolumeInfo(title: "blah", authors: ["fooo"], publisher: "blah", publishedDate: "blaaah", description: "blahaa", industryIdentifiers: [IndustryIdentifier(type: "blaaah", identifier: "blahhh")], pageCount: 4, printType: "bbbbbbbb", categories: ["Novel"], averageRating: 4.3, ratingsCount: 5, maturityRating: "blaaah", imageLinks:ImageLinks(smallThumbnail: "blaaah", thumbnail: "blaaah"), language: "English", previewLink: "gggggggg", infoLink: "bbbbbbbbb", canonicalVolumeLink: "eeeeeeee")
+            )
+            ]
+        ), nil)
+        
+        
     }
     
    
