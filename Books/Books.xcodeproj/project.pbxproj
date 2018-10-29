@@ -15,6 +15,8 @@
 		4B062399218772800065306D /* LambdaLogoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B0623972187727F0065306D /* LambdaLogoAssets.xcassets */; };
 		4B06239B2187784B0065306D /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B06239A2187784B0065306D /* Book.swift */; };
 		4B06239D21877CB90065306D /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B06239C21877CB90065306D /* BookController.swift */; };
+		4B06239F21878D1E0065306D /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B06239E21878D1E0065306D /* BookListViewController.swift */; };
+		4B0623A12187968D0065306D /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0623A02187968D0065306D /* BookTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		4B0623972187727F0065306D /* LambdaLogoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LambdaLogoAssets.xcassets; sourceTree = "<group>"; };
 		4B06239A2187784B0065306D /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		4B06239C21877CB90065306D /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
+		4B06239E21878D1E0065306D /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
+		4B0623A02187968D0065306D /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				4B06239A2187784B0065306D /* Book.swift */,
 				4B06239C21877CB90065306D /* BookController.swift */,
 				4B0623872187723F0065306D /* Main.storyboard */,
+				4B06239E21878D1E0065306D /* BookListViewController.swift */,
+				4B0623A02187968D0065306D /* BookTableViewCell.swift */,
 				4B06238A218772410065306D /* Assets.xcassets */,
 				4B06238C218772410065306D /* LaunchScreen.storyboard */,
 				4B06238F218772410065306D /* Info.plist */,
@@ -155,7 +161,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B06239D21877CB90065306D /* BookController.swift in Sources */,
+				4B06239F21878D1E0065306D /* BookListViewController.swift in Sources */,
 				4B06239B2187784B0065306D /* Book.swift in Sources */,
+				4B0623A12187968D0065306D /* BookTableViewCell.swift in Sources */,
 				4B0623842187723F0065306D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
