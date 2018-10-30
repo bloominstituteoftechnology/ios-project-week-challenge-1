@@ -41,11 +41,11 @@ class SearchTVC: UITableViewController, UISearchBarDelegate, SearchCellDelegate 
         actionSheet.addAction(newShelf)
         
         var alertList = [UIAlertAction]()
-        var indexOfShelf = 0
         for shelf in BookController.shared.bookshelves {
             let option = UIAlertAction(title: shelf.name, style: .default) { action in
                 guard let book = BookController.shared.bookSearch?.items[index] else {fatalError("Book scam in alert list")}
-                var bookShelf = BookController.shared.bookshelves[indexOfShelf]
+                // let bookShelf = BookController.shared.bookshelves[indexOfShelf]
+                let bookShelf = shelf
                 if let imageLinks = book.volumeInfo.imageLinks {
                     var bookObject = BookController.shared.newBook(name: book.volumeInfo.title, image:(imageLinks.smallThumbnail))
                     bookShelf.books.append(bookObject)
@@ -53,9 +53,8 @@ class SearchTVC: UITableViewController, UISearchBarDelegate, SearchCellDelegate 
                 }
             }
             alertList.append(option)
-            indexOfShelf += 1
         }
-        indexOfShelf = 0
+        
         for alert in alertList {
             actionSheet.addAction(alert)
         }
