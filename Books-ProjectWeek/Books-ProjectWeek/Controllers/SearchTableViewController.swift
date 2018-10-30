@@ -3,7 +3,8 @@ import UIKit
 
 class SearchTableViewController: UITableViewController, UISearchBarDelegate {
 
-    let api: API = FakeAPI()
+    //let api: API = FakeAPI()
+    let api: API = GoogleBooksApi()
     var volumes = [Volume]()
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -18,7 +19,9 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
            
             if let items = results?.items {
                 self.volumes = items
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
         }
         
@@ -42,7 +45,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = volumes[indexPath.row].info.title
+        cell.textLabel?.text = volumes[indexPath.row].volumeInfo.title
         return cell
     }
     

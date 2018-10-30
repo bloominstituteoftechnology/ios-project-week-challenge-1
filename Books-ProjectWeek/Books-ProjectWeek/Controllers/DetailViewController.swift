@@ -26,9 +26,9 @@ class DetailViewController: UIViewController {
         super.viewWillAppear(animated)
         
         guard let nb = newBook else {return}
-        bookName.text = nb.id
-        author.text = nb.info.authors.joined(separator:" , ")
-        descriptionBook.text = nb.info.description
+        bookName.text = nb.volumeInfo.title
+        author.text = nb.volumeInfo.authors?.joined(separator:" , ")
+        descriptionBook.text = nb.volumeInfo.description
      
         
         

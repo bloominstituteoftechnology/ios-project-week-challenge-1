@@ -117,7 +117,7 @@
                                 <state key="normal" title="Leave Review"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ohx-h2-xea">
-                                <rect key="frame" x="23" y="342" width="286" height="195"/>
+                                <rect key="frame" x="23" y="342" width="301" height="199"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.92715081865923388" green="0.92715081865923388" blue="0.92715081865923388" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
