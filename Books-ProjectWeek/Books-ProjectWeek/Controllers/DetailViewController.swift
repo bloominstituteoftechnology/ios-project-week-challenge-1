@@ -18,15 +18,30 @@ class DetailViewController: UIViewController {
     
 
     
-    var newBook: Volume?
+    var newBook: Volume?{
+        didSet{
+            if let book = newBook {
+                RealFirebase().storeBooks(volume: book, completion: {
+                    NSLog("\($0)") })
+            }
+            
+        }
+        
+    }
     
     
-    
+  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         guard let nb = newBook else {return}
         bookName.text = nb.volumeInfo.title
+        nb.volumeInfo.imageLinks.thumbnailImage {
+            image in
+            DispatchQueue.main.async {
+                self.bookImage?.image = image
+            }
+        }
         author.text = nb.volumeInfo.authors?.joined(separator:" , ")
         descriptionBook.text = nb.volumeInfo.description
      
@@ -43,6 +58,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var author: UILabel!
     
+    @IBOutlet weak var bookImage: UIImageView!
     
     
     /*

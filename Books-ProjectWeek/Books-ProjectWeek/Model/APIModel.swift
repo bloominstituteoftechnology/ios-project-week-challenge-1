@@ -16,7 +16,6 @@ protocol API {
 //
 //
 //    }
-
 //}
 
 
@@ -39,10 +38,7 @@ class GoogleBooksApi: API {
         Fetcher.GET(url: url, completion: completion)
     }
     
-    
 }
-
-
 
 
 struct SearchResults: Codable {
