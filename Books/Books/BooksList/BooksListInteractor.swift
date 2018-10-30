@@ -17,6 +17,9 @@ class BooksListInteractor: BooksListBusinessLogic, BooksListDataStore {
     var presenter: BooksListPresentationLogic?
     var worker: BooksListWorker?
     var bookModel: BookModel!
+    var delegate: UISearchResultsUpdating?
+    var searchText = "iOS"
+    var bookListViewController: BooksListViewController?
     
     // MARK: - Logic Properties
     var startIndex: Int = 0
@@ -54,10 +57,15 @@ class BooksListInteractor: BooksListBusinessLogic, BooksListDataStore {
     }
     
     private func getBookQuery() -> BookQuery {
-        return BookQuery(searchText: "iOS",
+        return BookQuery(searchText: "\(searchText)",
                          startIndex: startIndex,
                          maxResults: 40,
                          filter: .paidEbooks,
                          orderBy: orderBy)
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
 }

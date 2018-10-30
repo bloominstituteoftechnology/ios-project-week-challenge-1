@@ -14,6 +14,10 @@ class BooksListViewController: UIViewController, BooksListDisplayLogic {
     var interactor: BooksListBusinessLogic?
     var router: (NSObjectProtocol & BooksListRoutingLogic & BooksListDataPassing)?
     let searchController = UISearchController(searchResultsController: nil)
+    var filteredBooks = [BookModel]()
+    var books = [BookModel]()
+    var bookModel: BookModel?
+    var searchText: BooksListInteractor! 
     
     // MARK: - UI Properties
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -58,7 +62,26 @@ class BooksListViewController: UIViewController, BooksListDisplayLogic {
         searchController.searchBar.placeholder = "Search Books"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        searchController.delegate = self
         doGetBooks()
+    }
+    
+    // MARK: - Private instance methods
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filteredBooks = books.filter({( bookModel : BookModel) -> Bool in
+            return bookModel.title!.lowercased().contains(searchText.lowercased())
+        })
+        //BooksListViewController.reloadData()
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
     }
     
     // MARK: - Setup
@@ -293,7 +316,11 @@ extension BooksListViewController: BookSectionControllerDelegate {
 extension BooksListViewController: UISearchResultsUpdating {
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResults(for searchController: UISearchController) {
-        // TODO
+        filterContentForSearchText(searchController.searchBar.text!)
     }
+}
+
+extension BooksListViewController: UISearchControllerDelegate {
+
 }
 

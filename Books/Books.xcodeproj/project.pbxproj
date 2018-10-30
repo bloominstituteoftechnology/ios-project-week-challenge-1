@@ -53,6 +53,7 @@
 		7B85A2AF2187C4830056C71A /* SpinnerSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B85A2AE2187C4830056C71A /* SpinnerSectionCell.swift */; };
 		7B85A2B12187C8480056C71A /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B85A2B02187C8480056C71A /* APIProtocol.swift */; };
 		7B85A2B32187C8680056C71A /* BookAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B85A2B22187C8680056C71A /* BookAPIProtocol.swift */; };
+		7B85A2B62187FC480056C71A /* Bookshelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B85A2B52187FC480056C71A /* Bookshelf.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +106,7 @@
 		7B85A2AE2187C4830056C71A /* SpinnerSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerSectionCell.swift; sourceTree = "<group>"; };
 		7B85A2B02187C8480056C71A /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		7B85A2B22187C8680056C71A /* BookAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAPIProtocol.swift; sourceTree = "<group>"; };
+		7B85A2B52187FC480056C71A /* Bookshelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookshelf.swift; sourceTree = "<group>"; };
 		BE5ED49811851C5E075B2D89 /* Pods-Books.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Books.release.xcconfig"; path = "Pods/Target Support Files/Pods-Books/Pods-Books.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				7B85A24F218782FC0056C71A /* BookModel.swift */,
+				7B85A2B52187FC480056C71A /* Bookshelf.swift */,
 				7B85A2592187A76C0056C71A /* Result.swift */,
 				7B85A25B2187A78A0056C71A /* ErrorAPI.swift */,
 			);
@@ -538,6 +541,7 @@
 				7B85A28D2187C1EF0056C71A /* BookDetailsRouter.swift in Sources */,
 				7B85A25E2187A7DE0056C71A /* APIService.swift in Sources */,
 				7B85A28F2187C2240056C71A /* BookDetailsViewController.swift in Sources */,
+				7B85A2B62187FC480056C71A /* Bookshelf.swift in Sources */,
 				7B85A250218782FC0056C71A /* BookModel.swift in Sources */,
 				7B85A2752187AC890056C71A /* AlertModel.swift in Sources */,
 				7B85A27C2187AD4D0056C71A /* BooksListModels.swift in Sources */,
