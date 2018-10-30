@@ -48,14 +48,28 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="6SN-qP-keN">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="72" id="6SN-qP-keN" customClass="ImageCellTableViewCell" customModule="Books_ProjectWeek" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6SN-qP-keN" id="lG1-Yd-cyF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SKy-hh-fgy">
+                                            <rect key="frame" x="263" y="0.0" width="112" height="71.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="112" id="g7n-KA-OI4"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="SKy-hh-fgy" firstAttribute="top" secondItem="lG1-Yd-cyF" secondAttribute="top" id="Q0O-eh-RSG"/>
+                                        <constraint firstAttribute="bottom" secondItem="SKy-hh-fgy" secondAttribute="bottom" id="Zh9-M1-CxV"/>
+                                        <constraint firstAttribute="trailing" secondItem="SKy-hh-fgy" secondAttribute="trailing" id="wIo-iT-Vkb"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="myImageView" destination="SKy-hh-fgy" id="n7E-VA-5Nc"/>
                                     <segue destination="ZV4-6y-Mmc" kind="show" identifier="toDetail" id="shC-CR-UeT"/>
                                 </connections>
                             </tableViewCell>
@@ -71,7 +85,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FkB-aZ-Mr0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3022" y="-24"/>
+            <point key="canvasLocation" x="3021.5999999999999" y="-24.7376311844078"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="3X2-gW-tsR">

@@ -1,5 +1,5 @@
 import Foundation
-
+import UIKit
 
 var searchVolume: SearchTableViewController?
 
@@ -57,7 +57,8 @@ struct Volume: Codable {
 struct VolumeInfo: Codable {
     let title: String
     let authors: [String]?
-    let publisher, publishedDate: String
+    let publisher: String?
+    let publishedDate: String
     let description: String?
     let industryIdentifiers: [IndustryIdentifier]
     let pageCount: Int?
@@ -74,6 +75,16 @@ struct VolumeInfo: Codable {
 
 struct ImageLinks: Codable {
     let smallThumbnail, thumbnail: String
+    
+    func thumbnailImage(completion: @escaping (UIImage?) -> Void) {
+        guard let url = URL(string: thumbnail) else {return}
+        ImageLoader.fetchImage(from: url, completion: completion)
+    }
+    
+    func smallThumbnailImage(completion: @escaping (UIImage?) -> Void) {
+        guard let url = URL(string: smallThumbnail) else {return}
+        ImageLoader.fetchImage(from: url, completion: completion)
+    }
 }
 
 struct IndustryIdentifier: Codable {

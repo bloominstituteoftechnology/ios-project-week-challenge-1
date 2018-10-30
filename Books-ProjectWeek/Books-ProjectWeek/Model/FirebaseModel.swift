@@ -9,6 +9,10 @@
 import Foundation
 
 protocol Firebase {
+    
+    func cacheBook(v: Volume) -> Void
+    func findBooks(ids: [String], completion: ([CachedBook]?, Error?) -> Void) -> Void
+    
     func addTag(id: String, tag: String) -> Void
     func delTag(id: String, tag: String)  -> Void
     func markRead(id: String, read: Bool) -> Void
@@ -16,6 +20,10 @@ protocol Firebase {
     func createShelf(name: String)  -> Void
     func deleteShelf(name: String) -> Void
     func addBookToShelf(name: String, id: String) -> Void
+}
+
+struct CachedBook {
+    let volume: Volume
 }
 
 struct TaggedBook: Codable {
