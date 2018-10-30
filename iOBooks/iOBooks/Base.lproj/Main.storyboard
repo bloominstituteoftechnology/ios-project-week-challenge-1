@@ -125,21 +125,21 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-200" translatesAutoresizingMaskIntoConstraints="NO" id="lFT-hQ-7sJ">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lFT-hQ-7sJ">
                                         <rect key="frame" x="0.0" y="138.5" width="335" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFL-7P-7Ll">
-                                                <rect key="frame" x="0.0" y="0.0" width="267.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="30"/>
                                                 <state key="normal" title="Create"/>
                                                 <connections>
-                                                    <action selector="createButton:" destination="8Hn-4l-Phh" eventType="touchUpInside" id="jjV-Md-XnY"/>
+                                                    <action selector="createButton:" destination="8Hn-4l-Phh" eventType="touchUpInside" id="ann-DG-60s"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9W-YB-NCH">
-                                                <rect key="frame" x="67.5" y="0.0" width="267.5" height="30"/>
+                                                <rect key="frame" x="167.5" y="0.0" width="167.5" height="30"/>
                                                 <state key="normal" title="Cancel"/>
                                                 <connections>
-                                                    <action selector="cancelButton:" destination="8Hn-4l-Phh" eventType="touchUpInside" id="h8f-Ho-7dR"/>
+                                                    <action selector="cancelButton:" destination="8Hn-4l-Phh" eventType="touchUpInside" id="bYw-qA-akx"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -161,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sja-O7-5jh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1295" y="289"/>
+            <point key="canvasLocation" x="1457" y="289"/>
         </scene>
         <!--Bookshelves-->
         <scene sceneID="Xtw-AO-0wm">
@@ -206,7 +206,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Rko-Nq-JZ3">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lfu-7M-oSK"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lfu-7M-oSK">
+                            <connections>
+                                <segue destination="8Hn-4l-Phh" kind="presentation" identifier="toAddNewBookShelf" id="uL5-V0-RMN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26A-S8-ecV" userLabel="First Responder" sceneMemberID="firstResponder"/>

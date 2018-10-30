@@ -43,10 +43,15 @@ class BookShelvesTVC: UITableViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? BooksTVC else {return}
-        guard let indexPath = tableView.indexPathForSelectedRow else {return}
-        destination.bookshelf = BookController.shared.bookshelves[indexPath.row]
+        if let destination = segue.destination as? BooksTVC {
+            guard let indexPath = tableView.indexPathForSelectedRow else {return}
+            destination.bookshelf = BookController.shared.bookshelves[indexPath.row]
+        } else if let destination = segue.destination as? CreateBookshelfVC {
+            guard segue.identifier == "toAddNewBookShelf" else {return}
+            // Do something when going to CreateBookShelfVC
+        }
     }
+    
     
     
     /*

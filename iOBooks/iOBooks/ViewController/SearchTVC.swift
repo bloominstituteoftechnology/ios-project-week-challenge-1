@@ -35,7 +35,7 @@ class SearchTVC: UITableViewController, UISearchBarDelegate, SearchCellDelegate 
         let newShelf = UIAlertAction(title: "New Bookshelf", style: .default) { action in
             let sb = UIStoryboard(name: "Main", bundle: nil)
             self.present(sb.instantiateViewController(withIdentifier: "popup"), animated: true, completion: {
-                print("Modal")
+                // Set destination bookItem == the book item
             })
         }
         actionSheet.addAction(newShelf)
@@ -44,7 +44,7 @@ class SearchTVC: UITableViewController, UISearchBarDelegate, SearchCellDelegate 
         for shelf in BookController.shared.bookshelves {
             let option = UIAlertAction(title: shelf.name, style: .default) { action in
                 guard let book = BookController.shared.bookSearch?.items[index] else {fatalError("Book scam in alert list")}
-                // let bookShelf = BookController.shared.bookshelves[indexOfShelf]
+                
                 let bookShelf = shelf
                 if let imageLinks = book.volumeInfo.imageLinks {
                     var bookObject = BookController.shared.newBook(name: book.volumeInfo.title, image:(imageLinks.smallThumbnail))
