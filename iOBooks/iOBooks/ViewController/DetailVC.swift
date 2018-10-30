@@ -44,6 +44,7 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         updateViews()
+        print(book)
     }
     
     
@@ -86,20 +87,6 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        let newShelf = UIAlertAction(title: "New Bookshelf", style: .default) { action in
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            
-            if let destination = sb.instantiateViewController(withIdentifier: "popup") as? CreateBookshelfVC {
-                destination.book = self.book
-                self.present(destination, animated: true, completion: {
-                    self.updateViews()
-                    self.tableView.reloadData()
-                })
-            }
-            
-        }
-        actionSheet.addAction(newShelf)
-        
         var alertList = [UIAlertAction]()
         for shelf in BookController.shared.bookshelves {
             let option = UIAlertAction(title: shelf.name, style: .default) { action in
@@ -107,6 +94,8 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let bookShelf = shelf
                 bookShelf.books.append(book)
                 book.bookshelves.append(bookShelf)
+                self.updateViews()
+                self.tableView.reloadData()
                 
             }
             alertList.append(option)
