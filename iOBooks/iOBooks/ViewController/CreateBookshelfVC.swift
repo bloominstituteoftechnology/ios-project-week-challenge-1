@@ -11,6 +11,7 @@ import UIKit
 class CreateBookshelfVC: UIViewController {
     
     var bookItem: Item?
+    var book: Book?
     
     @IBOutlet weak var createBookTextField: UITextField!
     
@@ -22,9 +23,14 @@ class CreateBookshelfVC: UIViewController {
             theBook.bookshelves.append(BookController.shared.bookshelves.last!)
             
             dismiss(animated: true, completion: nil)
+        } else if book != nil {
+            BookController.shared.newShelf(name: text, books: [book!])
+            book?.bookshelves.append(BookController.shared.bookshelves.last!)
+            
+            dismiss(animated: true, completion: nil)
         } else {
             BookController.shared.newShelf(name: text, books: [])
-            
+
             dismiss(animated: true, completion: nil)
         }
     }

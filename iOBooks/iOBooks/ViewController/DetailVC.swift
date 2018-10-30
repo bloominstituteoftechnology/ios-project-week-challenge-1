@@ -34,6 +34,7 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func addToNewBookshelfButton(_ sender: Any) {
+        showActionSheet()
     }
     
     var book: Book?
@@ -49,6 +50,9 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func updateViews() {
         bookTitle.text = book?.name
+        if (book?.bookshelves.contains(where: { $0.name == "Read" }))! {
+            book?.read = true
+        }
         readSwitch.setOn(book?.read ?? false, animated: false)
         if let smallImage = book?.image {
             ImageLoader.fetchImage(from: URL(string: (smallImage))) { (image) in
@@ -77,10 +81,54 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func showActionSheet() {
+        let actionSheet = UIAlertController(title: "Choose a bookshelf", message: nil, preferredStyle: .actionSheet)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let newShelf = UIAlertAction(title: "New Bookshelf", style: .default) { action in
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            
+            if let destination = sb.instantiateViewController(withIdentifier: "popup") as? CreateBookshelfVC {
+                destination.book = self.book
+                self.present(destination, animated: true, completion: {
+                    self.updateViews()
+                    self.tableView.reloadData()
+                })
+            }
+            
+        }
+        actionSheet.addAction(newShelf)
+        
+        var alertList = [UIAlertAction]()
+        for shelf in BookController.shared.bookshelves {
+            let option = UIAlertAction(title: shelf.name, style: .default) { action in
+                guard let book = self.book else {return}
+                let bookShelf = shelf
+                bookShelf.books.append(book)
+                book.bookshelves.append(bookShelf)
+                
+            }
+            alertList.append(option)
+        }
+        
+        for alert in alertList {
+            actionSheet.addAction(alert)
+        }
+        actionSheet.addAction(cancel)
+    
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? ReviewVC else {return}
-        destination.book = book
+        if let destination = segue.destination as? ReviewVC {
+            destination.book = book
+        }
     }
     
 }
