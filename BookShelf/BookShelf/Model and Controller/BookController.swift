@@ -8,14 +8,17 @@
 
 import UIKit
 
-class BookModel {
+class BookController {
     
-    static let shared = BookModel()
+    static let shared = BookController()
     private init (){}
     
     var bookRecords: [Item] = []
     
-    var searchBC = SearchBookController()
+    var searchBC = BookStoreSearchController()
+    
+    // make crud functions
+    
     
      let baseURL = URL(string:"https://www.googleapis.com/books/v1/volumes")!
     
@@ -44,7 +47,8 @@ class BookModel {
             }
             
             do {
-                let searchResults = try JSONDecoder().decode(BookEntry.self, from: data)
+                let searchResults = try JSONDecoder().decode(BookFeed.self, from: data)
+                print(searchResults)
                 self.bookRecords = searchResults.items
                 completion()
             } catch {

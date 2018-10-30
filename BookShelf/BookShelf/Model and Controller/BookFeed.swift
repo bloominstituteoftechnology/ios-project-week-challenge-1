@@ -2,13 +2,13 @@
 //  BookEntry.swift
 //  BookShelf
 //
-//  Created by Jerrick Warren on 10/29/18.
+//  Created by Jerrick Warren on 10/30/18.
 //  Copyright © 2018 Jerrick Warren. All rights reserved.
 //
 
 import UIKit
 
-struct BookEntry: Codable {
+struct BookFeed: Codable {
     let kind: String
     let totalItems: Int
     let items: [Item]
@@ -27,15 +27,15 @@ enum Country: String, Codable {
 
 struct VolumeInfo: Codable {
     let title: String
-    let authors: [String]
+    let authors: [String]?
     let publisher: String?
-    let publishedDate: String
-    let description: String
+    let publishedDate: String?
+    let description: String?
     let pageCount: Int?
     let averageRating: Double?
     let ratingsCount: Int?
-    let imageLinks: ImageLinks
-    let language: Language
+    let imageLinks: ImageLinks?
+    let language: Language?
     let previewLink: String?
     let infoLink: String?
     let subtitle: String?
@@ -64,8 +64,6 @@ private enum CodingKeys: String, CodingKey {
 }
 
 struct BookFeedResults: Codable {
-    var items: [BookEntry]
-    
+    var items: [BookFeed]
 }
-
 

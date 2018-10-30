@@ -8,9 +8,7 @@
 
 import UIKit
 
-class BookShelfTableViewCell: UITableViewCell {
-
-    
+class BookStoreTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
