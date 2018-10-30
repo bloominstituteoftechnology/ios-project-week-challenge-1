@@ -17,7 +17,7 @@ class BooksListViewController: UIViewController, BooksListDisplayLogic {
     var filteredBooks = [BookModel]()
     var books = [BookModel]()
     var bookModel: BookModel?
-    var searchText: BooksListInteractor! 
+    var searchWord: String = "iOS"
     
     // MARK: - UI Properties
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -62,7 +62,9 @@ class BooksListViewController: UIViewController, BooksListDisplayLogic {
         searchController.searchBar.placeholder = "Search Books"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        searchController.delegate = self
+
+//        searchController.delegate = self as? UISearchControllerDelegate
+        searchController.searchBar.delegate = self
         doGetBooks()
     }
     
@@ -77,7 +79,7 @@ class BooksListViewController: UIViewController, BooksListDisplayLogic {
         filteredBooks = books.filter({( bookModel : BookModel) -> Bool in
             return bookModel.title!.lowercased().contains(searchText.lowercased())
         })
-        //BooksListViewController.reloadData()
+        collectionView.reloadData()
     }
     
     func isFiltering() -> Bool {
@@ -179,6 +181,7 @@ class BooksListViewController: UIViewController, BooksListDisplayLogic {
     private func doGetBooks() {
         loaderView.showInView(view: view)
         let request = BooksList.GetBooks.Request()
+        interactor?.searchWord = self.searchWord
         interactor?.doGetBooks(request: request)
     }
     
@@ -316,11 +319,21 @@ extension BooksListViewController: BookSectionControllerDelegate {
 extension BooksListViewController: UISearchResultsUpdating {
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResults(for searchController: UISearchController) {
+        searchWord = searchController.searchBar.text!
         filterContentForSearchText(searchController.searchBar.text!)
     }
+
 }
 
-extension BooksListViewController: UISearchControllerDelegate {
-
+extension BooksListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchWord = searchBar.text ?? ""
+        collectionView.reloadData()
+        doGetBooks()
+    }
 }
 

@@ -31,15 +31,17 @@ class BookDetailsViewController: UIViewController, BookDetailsDisplayLogic {
     // MARK: - View lifecycle
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let dismissAction = UIAlertAction(title: "Dismiss",
-                                          style: .default,
-                                          handler: nil)
         
-        let alertController = UIAlertController(title: "Ops!",
-                                                message: "Working in progress :)",
-                                                preferredStyle: .alert)
-        alertController.addAction(dismissAction)
-        present(alertController, animated: true)
+//        let dismissAction = UIAlertAction(title: "Dismiss",
+//                                          style: .default,
+//                                          handler: nil)
+//
+//        let alertController = UIAlertController(title: "Ops!",
+//                                                message: "Working in progress :)",
+//                                                preferredStyle: .alert)
+//        alertController.addAction(dismissAction)
+//        present(alertController, animated: true)
+        
     }
     
     // MARK: - Setup
