@@ -11,9 +11,17 @@ import UIKit
 class ReviewVC: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var saveButton: UIButton!
+    @IBAction func saveReviewButton(_ sender: Any) {
+        if let text = textView.text, !text.isEmpty {
+            book?.review = text
+        }
+    }
+    
     
     var book: Book?
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textView.text = book?.review
+    }
 }

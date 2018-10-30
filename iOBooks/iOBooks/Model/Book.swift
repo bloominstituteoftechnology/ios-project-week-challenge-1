@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct Book {
+class Book {
     let name: String
     let image: String?
     var review: String?

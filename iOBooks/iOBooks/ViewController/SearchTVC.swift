@@ -34,9 +34,14 @@ class SearchTVC: UITableViewController, UISearchBarDelegate, SearchCellDelegate 
         
         let newShelf = UIAlertAction(title: "New Bookshelf", style: .default) { action in
             let sb = UIStoryboard(name: "Main", bundle: nil)
-            self.present(sb.instantiateViewController(withIdentifier: "popup"), animated: true, completion: {
-                // Set destination bookItem == the book item
-            })
+            
+            if let destination = sb.instantiateViewController(withIdentifier: "popup") as? CreateBookshelfVC {
+                destination.bookItem = BookController.shared.bookSearch?.items[index]
+                    self.present(destination, animated: true, completion: {
+                        // Set destination bookItem == the book item
+                    })
+            }
+            
         }
         actionSheet.addAction(newShelf)
         
