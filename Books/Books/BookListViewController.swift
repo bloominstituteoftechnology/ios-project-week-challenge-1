@@ -8,6 +8,15 @@ class BookListViewController: UIViewController {
     @IBOutlet weak var bookListTableView: UITableView!
     @IBOutlet weak var bookSearchBar: UISearchBar!
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? BookTableViewCell,
+            let indexPath = bookListTableView.indexPath(for: cell),
+            let managePageViewController = segue.destination as? ManagePageViewController {
+            managePageViewController.books = self.books
+            managePageViewController.currentIndex = indexPath.row
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bookListTableView.dataSource = self
