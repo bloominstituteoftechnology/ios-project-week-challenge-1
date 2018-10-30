@@ -13,6 +13,7 @@ class BooksListViewController: UIViewController, BooksListDisplayLogic {
     
     var interactor: BooksListBusinessLogic?
     var router: (NSObjectProtocol & BooksListRoutingLogic & BooksListDataPassing)?
+    let searchController = UISearchController(searchResultsController: nil)
     
     // MARK: - UI Properties
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -51,6 +52,12 @@ class BooksListViewController: UIViewController, BooksListDisplayLogic {
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Setup the Search Controller
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Books"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
         doGetBooks()
     }
     
@@ -282,3 +289,11 @@ extension BooksListViewController: BookSectionControllerDelegate {
         interactor?.doRouteToBookDetails(request: request)
     }
 }
+
+extension BooksListViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        // TODO
+    }
+}
+
