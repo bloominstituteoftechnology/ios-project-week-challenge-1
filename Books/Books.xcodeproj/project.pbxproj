@@ -20,6 +20,7 @@
 		4B0623A12187968D0065306D /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0623A02187968D0065306D /* BookTableViewCell.swift */; };
 		4B0623A32187A1B20065306D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0623A22187A1B20065306D /* DetailViewController.swift */; };
 		4B0623A52187A2610065306D /* ManagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0623A42187A2610065306D /* ManagePageViewController.swift */; };
+		4B0623D82188EF100065306D /* Bookshelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0623D72188EF100065306D /* Bookshelf.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		4B0623A02187968D0065306D /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		4B0623A22187A1B20065306D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4B0623A42187A2610065306D /* ManagePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagePageViewController.swift; sourceTree = "<group>"; };
+		4B0623D72188EF100065306D /* Bookshelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookshelf.swift; sourceTree = "<group>"; };
 		A4EF16A8A23D211BAABA6D35 /* Pods_Books.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Books.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC1202514917ECB431D743E3 /* Pods-Books.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Books.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Books/Pods-Books.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +82,7 @@
 				4B06239C21877CB90065306D /* BookController.swift */,
 				4B0623A22187A1B20065306D /* DetailViewController.swift */,
 				4B0623872187723F0065306D /* Main.storyboard */,
+				4B0623D72188EF100065306D /* Bookshelf.swift */,
 				4B0623A42187A2610065306D /* ManagePageViewController.swift */,
 				4B06239E21878D1E0065306D /* BookListViewController.swift */,
 				4B0623A02187968D0065306D /* BookTableViewCell.swift */,
@@ -246,6 +249,7 @@
 				4B0623A52187A2610065306D /* ManagePageViewController.swift in Sources */,
 				4B0623A12187968D0065306D /* BookTableViewCell.swift in Sources */,
 				4B0623842187723F0065306D /* AppDelegate.swift in Sources */,
+				4B0623D82188EF100065306D /* Bookshelf.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

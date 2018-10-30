@@ -53,7 +53,7 @@ extension BookListViewController: UITableViewDataSource, UITableViewDelegate {
         cell.titleLabel.text = currentBook.title
         cell.authorLabel.text = currentBook.authors[0]
         
-
+        cell.bookImageView.sd_setImage(with: URL(string: currentBook.smallThumbnail!))
         
         return cell
     }
