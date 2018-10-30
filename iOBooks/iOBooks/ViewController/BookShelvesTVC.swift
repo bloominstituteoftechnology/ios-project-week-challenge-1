@@ -19,8 +19,6 @@ class BookShelvesTVC: UITableViewController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-       // print("tableReloaded. Bookshelves: \(BookController.shared.bookshelves))"
-        print("table Reloaded. Bookshelves: \(BookController.shared.bookshelves)")
     }
     
     

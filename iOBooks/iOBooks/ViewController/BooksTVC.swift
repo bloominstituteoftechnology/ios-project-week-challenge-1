@@ -22,12 +22,10 @@ class BooksTVC: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return bookshelf!.books.count
     }
     
@@ -61,7 +59,7 @@ class BooksTVC: UITableViewController {
             guard var book = bookshelf?.books[indexPath.row] else {return}
             let replacedArray = book.bookshelves.filter({ $0.name != bookshelf?.name })
             book.bookshelves = replacedArray
-            
+            bookshelf?.books.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

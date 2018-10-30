@@ -49,7 +49,6 @@ class BookController {
                 completion()
                 return
             } catch {
-                print(url)
                 NSLog("Could not decode JSON into BookSearch objects")
                 completion()
                 return

@@ -46,13 +46,10 @@ class SearchTVC: UITableViewController, UISearchBarDelegate, SearchCellDelegate 
             let option = UIAlertAction(title: shelf.name, style: .default) { action in
                 guard let book = BookController.shared.bookSearch?.items[index] else {fatalError("Book scam in alert list")}
                 var bookShelf = BookController.shared.bookshelves[indexOfShelf]
-                print(bookShelf)
                 if let imageLinks = book.volumeInfo.imageLinks {
                     var bookObject = BookController.shared.newBook(name: book.volumeInfo.title, image:(imageLinks.smallThumbnail))
-                    print(bookObject)
                     bookShelf.books.append(bookObject)
                     bookObject.bookshelves.append(bookShelf)
-                    print(bookShelf)
                 }
             }
             alertList.append(option)
