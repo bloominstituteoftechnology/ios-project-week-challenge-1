@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4782FAB8218774C4001811A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4782FAB7218774C4001811A6 /* AppDelegate.swift */; };
-		4782FABA218774C4001811A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4782FAB9218774C4001811A6 /* ViewController.swift */; };
 		4782FABD218774C4001811A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4782FABB218774C4001811A6 /* Main.storyboard */; };
 		4782FABF218774C5001811A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4782FABE218774C5001811A6 /* Assets.xcassets */; };
 		4782FAC2218774C5001811A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4782FAC0218774C5001811A6 /* LaunchScreen.storyboard */; };
@@ -17,12 +16,13 @@
 		4782FAEE2187772D001811A6 /* BookEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4782FAED2187772D001811A6 /* BookEntry.swift */; };
 		4782FAF02187773A001811A6 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4782FAEF2187773A001811A6 /* BookModel.swift */; };
 		4782FAF221877751001811A6 /* BookTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4782FAF121877751001811A6 /* BookTVController.swift */; };
+		4782FAF521879F19001811A6 /* SeachBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4782FAF421879F19001811A6 /* SeachBookController.swift */; };
+		47EA24B52188B12B007E08B5 /* BookShelf.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47EA24B42188B12B007E08B5 /* BookShelf.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4782FAB4218774C4001811A6 /* BookShelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookShelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4782FAB7218774C4001811A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4782FAB9218774C4001811A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4782FABC218774C4001811A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4782FABE218774C5001811A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4782FAC1218774C5001811A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -32,6 +32,8 @@
 		4782FAED2187772D001811A6 /* BookEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEntry.swift; sourceTree = "<group>"; };
 		4782FAEF2187773A001811A6 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		4782FAF121877751001811A6 /* BookTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTVController.swift; sourceTree = "<group>"; };
+		4782FAF421879F19001811A6 /* SeachBookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachBookController.swift; sourceTree = "<group>"; };
+		47EA24B42188B12B007E08B5 /* BookShelf.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookShelf.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				4782FAB6218774C4001811A6 /* BookShelf */,
+				4782FAF72187F431001811A6 /* Resources */,
 				4782FAB5218774C4001811A6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,19 +67,59 @@
 		4782FAB6218774C4001811A6 /* BookShelf */ = {
 			isa = PBXGroup;
 			children = (
-				4782FAB7218774C4001811A6 /* AppDelegate.swift */,
-				4782FAB9218774C4001811A6 /* ViewController.swift */,
-				4782FABB218774C4001811A6 /* Main.storyboard */,
-				4782FAE9218775F7001811A6 /* BookShelfTableViewCell.swift */,
-				4782FAF121877751001811A6 /* BookTVController.swift */,
-				4782FAEA218775F7001811A6 /* BookShelfTableViewCell.xib */,
-				4782FAED2187772D001811A6 /* BookEntry.swift */,
+				4782FAF82187F44E001811A6 /* Storyboards */,
+				4782FAF92187F45C001811A6 /* ViewControllers */,
+				4782FAF62187F401001811A6 /* BookShelfCell */,
+				4782FAF321879771001811A6 /* Model and Controller */,
+			);
+			path = BookShelf;
+			sourceTree = "<group>";
+		};
+		4782FAF321879771001811A6 /* Model and Controller */ = {
+			isa = PBXGroup;
+			children = (
 				4782FAEF2187773A001811A6 /* BookModel.swift */,
+				4782FAED2187772D001811A6 /* BookEntry.swift */,
+			);
+			path = "Model and Controller";
+			sourceTree = "<group>";
+		};
+		4782FAF62187F401001811A6 /* BookShelfCell */ = {
+			isa = PBXGroup;
+			children = (
+				4782FAE9218775F7001811A6 /* BookShelfTableViewCell.swift */,
+				4782FAEA218775F7001811A6 /* BookShelfTableViewCell.xib */,
+			);
+			path = BookShelfCell;
+			sourceTree = "<group>";
+		};
+		4782FAF72187F431001811A6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4782FAB7218774C4001811A6 /* AppDelegate.swift */,
 				4782FABE218774C5001811A6 /* Assets.xcassets */,
 				4782FAC0218774C5001811A6 /* LaunchScreen.storyboard */,
 				4782FAC3218774C5001811A6 /* Info.plist */,
 			);
-			path = BookShelf;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4782FAF82187F44E001811A6 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4782FABB218774C4001811A6 /* Main.storyboard */,
+				47EA24B42188B12B007E08B5 /* BookShelf.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		4782FAF92187F45C001811A6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4782FAF421879F19001811A6 /* SeachBookController.swift */,
+				4782FAF121877751001811A6 /* BookTVController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4782FAC2218774C5001811A6 /* LaunchScreen.storyboard in Resources */,
+				47EA24B52188B12B007E08B5 /* BookShelf.storyboard in Resources */,
 				4782FABF218774C5001811A6 /* Assets.xcassets in Resources */,
 				4782FABD218774C4001811A6 /* Main.storyboard in Resources */,
 				4782FAEC218775F7001811A6 /* BookShelfTableViewCell.xib in Resources */,
@@ -152,7 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4782FAF02187773A001811A6 /* BookModel.swift in Sources */,
-				4782FABA218774C4001811A6 /* ViewController.swift in Sources */,
+				4782FAF521879F19001811A6 /* SeachBookController.swift in Sources */,
 				4782FAEB218775F7001811A6 /* BookShelfTableViewCell.swift in Sources */,
 				4782FAB8218774C4001811A6 /* AppDelegate.swift in Sources */,
 				4782FAF221877751001811A6 /* BookTVController.swift in Sources */,
@@ -304,7 +348,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7JG93VFG2G;
-				INFOPLIST_FILE = BookShelf/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,7 +366,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7JG93VFG2G;
-				INFOPLIST_FILE = BookShelf/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

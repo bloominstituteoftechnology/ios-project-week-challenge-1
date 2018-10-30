@@ -10,6 +10,8 @@ import UIKit
 
 class BookShelfTableViewCell: UITableViewCell {
 
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,10 +24,13 @@ class BookShelfTableViewCell: UITableViewCell {
     }
     
     
+    
+    
     @IBOutlet weak var bookImage: UIImageView!
-    
     @IBOutlet weak var bookTitle: UILabel!
-    
     @IBOutlet weak var bookAuthor: UILabel!
+    
+    
+
     
 }

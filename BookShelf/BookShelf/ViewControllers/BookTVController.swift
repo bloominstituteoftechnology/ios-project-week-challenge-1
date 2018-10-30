@@ -1,5 +1,5 @@
 //
-//  BookEntry.swift
+//  BookTVController.swift
 //  BookShelf
 //
 //  Created by Jerrick Warren on 10/29/18.
@@ -8,6 +8,8 @@
 
 import UIKit
 
-struct BooksEntry {
+class BookTableViewController: UITableViewController {
+    
+    
     
 }
