@@ -17,7 +17,7 @@ class CreateBookshelfVC: UIViewController {
     @IBAction func createButton(_ sender: Any) {
         guard let text = createBookTextField.text, !text.isEmpty else {return}
         if bookItem != nil {
-            var theBook = BookController.shared.newBook(name: (bookItem?.volumeInfo.title)!, image: (bookItem?.volumeInfo.imageLinks?.smallThumbnail)!)
+            let theBook = BookController.shared.newBook(name: (bookItem?.volumeInfo.title)!, image: (bookItem?.volumeInfo.imageLinks?.smallThumbnail)!)
             BookController.shared.newShelf(name: text, books: [theBook])
             theBook.bookshelves.append(BookController.shared.bookshelves.last!)
             

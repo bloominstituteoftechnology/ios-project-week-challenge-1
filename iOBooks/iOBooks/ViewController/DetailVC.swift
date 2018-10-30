@@ -9,11 +9,12 @@
 import UIKit
 
 class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
- 
+    
     @IBOutlet weak var bookTitle: UILabel!
     @IBOutlet weak var bookImage: UIImageView!
     @IBOutlet weak var readSwitch: UISwitch!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var myReviewButton: UIButton!
     
     @IBAction func readSwitchAction(_ sender: Any) {
         switch readSwitch.isOn {
@@ -36,7 +37,7 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     var book: Book?
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.delegate = self
@@ -44,13 +45,11 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         updateViews()
     }
     
-
+    
     
     func updateViews() {
         bookTitle.text = book?.name
-        
         readSwitch.setOn(book?.read ?? false, animated: false)
-        
         if let smallImage = book?.image {
             ImageLoader.fetchImage(from: URL(string: (smallImage))) { (image) in
                 guard let image = image else { return}
@@ -60,7 +59,11 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         }
         
-        if 
+        if book?.review == "" || book?.review == nil {
+            myReviewButton.titleLabel?.text = "Review Book"
+        } else {
+            myReviewButton.titleLabel?.text = "My Review"
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,10 +77,10 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destination = segue.destination as? ReviewVC else {return}
-        
+        destination.book = book
     }
-
+    
 }

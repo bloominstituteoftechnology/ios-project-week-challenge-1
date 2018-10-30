@@ -12,9 +12,10 @@ class ReviewVC: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
     @IBAction func saveReviewButton(_ sender: Any) {
-        if let text = textView.text, !text.isEmpty {
+        if let text = textView.text {
             book?.review = text
         }
+        navigationController?.popViewController(animated: true)
     }
     
     

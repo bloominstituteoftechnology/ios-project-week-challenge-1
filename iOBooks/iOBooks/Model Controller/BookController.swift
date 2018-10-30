@@ -16,7 +16,7 @@ class BookController {
     var bookshelves: [Bookshelf] = []
     
     func newBook(name: String, image: String) -> Book {
-        return Book(name: name, image: image)
+        return Book(name: name, image: image, review: "", read: false)
     }
     
     func newShelf(name: String, books: [Book]) {

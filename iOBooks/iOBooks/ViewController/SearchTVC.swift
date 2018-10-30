@@ -52,7 +52,7 @@ class SearchTVC: UITableViewController, UISearchBarDelegate, SearchCellDelegate 
                 
                 let bookShelf = shelf
                 if let imageLinks = book.volumeInfo.imageLinks {
-                    var bookObject = BookController.shared.newBook(name: book.volumeInfo.title, image:(imageLinks.smallThumbnail))
+                    let bookObject = BookController.shared.newBook(name: book.volumeInfo.title, image:(imageLinks.smallThumbnail))
                     bookShelf.books.append(bookObject)
                     bookObject.bookshelves.append(bookShelf)
                 }

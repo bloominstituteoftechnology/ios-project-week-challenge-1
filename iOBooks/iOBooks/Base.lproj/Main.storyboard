@@ -345,9 +345,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5k-ww-dqY">
-                                <rect key="frame" x="175" y="255" width="82" height="40"/>
+                                <rect key="frame" x="175" y="255" width="115" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="My Review"/>
+                                <state key="normal" title="Review Book"/>
                                 <connections>
                                     <segue destination="hfz-fB-xlR" kind="show" id="km0-RK-NC7"/>
                                 </connections>
@@ -366,6 +366,7 @@
                     <connections>
                         <outlet property="bookImage" destination="6g8-hA-Cpy" id="amA-eC-r0E"/>
                         <outlet property="bookTitle" destination="eNr-wK-0La" id="69A-gz-iee"/>
+                        <outlet property="myReviewButton" destination="a5k-ww-dqY" id="QPR-46-YcZ"/>
                         <outlet property="readSwitch" destination="Bhl-wi-ruF" id="nnk-Gc-tcK"/>
                         <outlet property="tableView" destination="swA-cx-2Dc" id="ruj-KZ-pp3"/>
                     </connections>
