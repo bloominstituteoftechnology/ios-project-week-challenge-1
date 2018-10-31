@@ -13,6 +13,7 @@ class BookController {
     static let shared = BookController()
     private init (){}
     
+    // bookRecords is of Type Item and is an empty array
     var bookRecords: [Item] = []
     
     var searchBC = BookStoreSearchController()

@@ -154,7 +154,7 @@
                                     <outlet property="bookAuthor" destination="H3A-ns-13D" id="QTa-sf-MKQ"/>
                                     <outlet property="bookImage" destination="AE2-dp-Nsv" id="kfj-W0-Rq6"/>
                                     <outlet property="bookTitle" destination="OQb-iA-CPP" id="FrA-K7-kwJ"/>
-                                    <segue destination="YmA-rw-eWN" kind="show" id="9F0-Al-xCI"/>
+                                    <segue destination="YmA-rw-eWN" kind="show" identifier="bookstoredetailsegue" id="9F0-Al-xCI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

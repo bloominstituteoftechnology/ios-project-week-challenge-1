@@ -12,6 +12,8 @@ class BookStoreSearchController: UITableViewController, UISearchBarDelegate {
     
     let reuseIdendtifier = "bookstorecell"
 
+    var bookRecords = [Item]()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -63,9 +65,18 @@ class BookStoreSearchController: UITableViewController, UISearchBarDelegate {
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
-//
-//
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? BookStoreDetailViewController,
+        let indexPath = tableView.indexPathForSelectedRow else {return}
+        
+        // need to set the imageLinks
+        destination.testPicture = BookController.shared.bookRecords[indexPath.row].volumeInfo.imageLinks
+       destination.bookRecord = BookController.shared.bookRecords[indexPath.row]
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "bookstoredetailsegue", sender: tableView)
+    }
+
+
 }

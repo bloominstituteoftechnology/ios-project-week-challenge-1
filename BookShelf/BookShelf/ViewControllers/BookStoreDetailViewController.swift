@@ -12,11 +12,26 @@ class BookStoreDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     
-    let bookRecord = BookController.shared.bookRecords
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let bookRecord = bookRecord else { return }
+        print(bookRecord.volumeInfo.title)
+    
+        
+        imageLoader()
+    }
+    
+    
+    var bookRecord : Item? {
+        didSet {
+            if isViewLoaded {
+                //UpdateViews
+            }
+        }
+    }
     
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -25,18 +40,19 @@ class BookStoreDetailViewController: UIViewController {
     @IBOutlet weak var reviewTextView: UITextView!
     
     @IBAction func saveBookButton(_ sender: Any){
+        
     }
     
-//    var testPicture: ImageLinks?
-//
-//    func imageLoader () {
-//        ImageLoader.fetchImage(from: URL(string: (testPicture?.smallThumbnail ?? nil))  { image in
-//            guard let image = image else { return }
-//            DispatchQueue.main.async {
-//                self.bookImage.image = image
-//            }
-//        }
-//    }
+    var testPicture: ImageLinks?
+
+    func imageLoader () {
+        ImageLoader.fetchImage(from: URL(string: testPicture!.thumbnail))  { image in
+            guard let image = image else { return }
+            DispatchQueue.main.async {
+                self.bookImage.image = image
+            }
+        }
+    }
     
     
     /*
