@@ -49,7 +49,9 @@ class DetailViewController: UIViewController {
         if let destination =  segue.destination as? ShelvesTableViewController {
             destination.book = newBook
         }
-        
+        if let destination =  segue.destination as? ReviewCollectionViewController {
+        destination.book = newBook
+        }
     }
     
     

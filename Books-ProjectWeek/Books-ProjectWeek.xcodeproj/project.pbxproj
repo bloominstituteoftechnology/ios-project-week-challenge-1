@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44635A8D218A3854001F79B0 /* ReviewCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44635A8C218A3854001F79B0 /* ReviewCollectionViewController.swift */; };
+		44635A8F218A38D1001F79B0 /* ReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44635A8E218A38D1001F79B0 /* ReviewCollectionViewCell.swift */; };
 		44A4410321879154009E3C15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A4410221879154009E3C15 /* AppDelegate.swift */; };
 		44A4410821879154009E3C15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A4410621879154009E3C15 /* Main.storyboard */; };
 		44A4410A21879156009E3C15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44A4410921879156009E3C15 /* Assets.xcassets */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44635A8C218A3854001F79B0 /* ReviewCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCollectionViewController.swift; sourceTree = "<group>"; };
+		44635A8E218A38D1001F79B0 /* ReviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		44A440FF21879154009E3C15 /* Books-ProjectWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Books-ProjectWeek.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A4410221879154009E3C15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44A4410721879154009E3C15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 		44A4411F2187B64C009E3C15 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				44635A8E218A38D1001F79B0 /* ReviewCollectionViewCell.swift */,
+				44635A8C218A3854001F79B0 /* ReviewCollectionViewController.swift */,
 				44E89000218965BB007CD679 /* ShelfCollectionViewCell.swift */,
 				44E88FFE218963C3007CD679 /* ShelfUICollectionView.swift */,
 				44E88FFA21895FFE007CD679 /* HomeTableViewController.swift */,
@@ -189,7 +195,9 @@
 			files = (
 				44A441212187B67A009E3C15 /* ImageLoader.swift in Sources */,
 				44E88FFB21895FFE007CD679 /* HomeTableViewController.swift in Sources */,
+				44635A8F218A38D1001F79B0 /* ReviewCollectionViewCell.swift in Sources */,
 				44E8900321896ADF007CD679 /* HomeTableViewCell.swift in Sources */,
+				44635A8D218A3854001F79B0 /* ReviewCollectionViewController.swift in Sources */,
 				44A4411721879180009E3C15 /* FirebaseModel.swift in Sources */,
 				44A4411621879180009E3C15 /* APIModel.swift in Sources */,
 				44E89001218965BB007CD679 /* ShelfCollectionViewCell.swift in Sources */,

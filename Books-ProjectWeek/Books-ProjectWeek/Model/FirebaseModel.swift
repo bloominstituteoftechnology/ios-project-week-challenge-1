@@ -23,11 +23,58 @@ protocol Firebase {
 
     func addBookToShelf  (name: String, id: String, completion: @escaping (Error?) -> Void) -> Void
     func delBookFromShelf(name: String, id: String, completion: @escaping (Error?) -> Void) -> Void
+    
+    func addReview(review: String, bookId: String, completion: @escaping (Error?)-> Void) -> Void
+    func deleteReview(bookId: String, completion: @escaping (Error?) -> Void)-> Void
+    func getReviews(bookId: String, completion: @escaping ([String:Review]?, Error?) -> Void) -> Void
 }
 
 class RealFirebase: Firebase {
+    func getReviews(bookId: String, completion: @escaping ([String : Review]?, Error?) -> Void) {
+        let url = RealFirebase.baseURL
+            .appendingPathComponent("reviews")
+            .appendingPathComponent(bookId)
+            .appendingPathExtension("json")
+        
+        Fetcher.GET(
+            url: url,
+            completion: completion
+        )
+    }
+    
+    func addReview(review: String, bookId: String, completion: @escaping (Error?) -> Void) {
+        let url = RealFirebase.baseURL
+            .appendingPathComponent("reviews")
+            .appendingPathComponent(bookId)
+            .appendingPathComponent(userId)
+            .appendingPathExtension("json")
+        
+        Fetcher.PUT(
+            url: url,
+            body: Review(userId: userId, review: review, bookId: bookId),
+            completion: convertCompletion(completion: completion)
+        )
+        
+        
+    }
+    
+   
+    
+    func deleteReview(bookId: String, completion: @escaping (Error?) -> Void) {
+        let url = RealFirebase.baseURL
+            .appendingPathComponent("reviews")
+            .appendingPathComponent(bookId)
+            .appendingPathComponent(userId)
+            .appendingPathExtension("json")
+        
+        Fetcher.DELETE(
+            url: url,
+            completion: convertCompletion(completion: completion)
+        )
+    }
+    
     private static let baseURL = URL(string: "https://books-e1fe5.firebaseio.com/")!
-    private let userId = UIDevice.current.identifierForVendor!.uuidString
+     let userId = UIDevice.current.identifierForVendor!.uuidString
     
     func isRead(id: String, completion: @escaping (ReadBook?, Error?) -> Void) {
         let url = RealFirebase.baseURL
