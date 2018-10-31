@@ -12,17 +12,24 @@ class BookShelvesTVC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        BookController.shared.downloadBooks { (success) in
+            if success {
+                print("Downloaded Books")
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } else {
+                print("Couldn't download books")
+            }
+            
+        }
         if BookController.shared.bookshelves.count < 2 {
             let readShelf = BookController.shared.newShelf(name: "Read", books: [])
             let favoritesShelf = BookController.shared.newShelf(name: "Favorites", books: [])
-
         }
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-
-
-        
     }
     
     

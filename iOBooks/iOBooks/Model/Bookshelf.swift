@@ -11,12 +11,11 @@ import Foundation
 
 class Bookshelf: Codable {
     let name: String
-    var identifier: String
     
     var books: [Book] = []
     
     init(name: String, books: [Book]) {
-        (self.name, self.books, self.identifier) = (name, books, UUID().uuidString)
+        (self.name, self.books) = (name, books)
     }
 }
 

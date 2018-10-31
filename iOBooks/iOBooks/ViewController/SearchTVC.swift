@@ -55,6 +55,9 @@ class SearchTVC: UITableViewController, UISearchBarDelegate, SearchCellDelegate 
                     let bookObject = BookController.shared.newBook(name: book.volumeInfo.title, image:(imageLinks.smallThumbnail))
                     bookShelf.books.append(bookObject)
                     bookObject.bookshelves.append(bookShelf.name)
+                    
+                    // Upload to Firebase
+                    BookController.shared.uploadBook(book: bookObject)
                 }
             }
             alertList.append(option)
