@@ -17,6 +17,10 @@ class BookStoreSearchController: UITableViewController, UISearchBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        searchBar.delegate = self
+        tableView.rowHeight = 120
+        
+        
         
     }
     
@@ -24,9 +28,9 @@ class BookStoreSearchController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.delegate = self
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 300
+        //searchBar.delegate = self
+//        tableView.rowHeight = UITableView.automaticDimension
+//        tableView.estimatedRowHeight = 300
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let book = searchBar.text else {return}

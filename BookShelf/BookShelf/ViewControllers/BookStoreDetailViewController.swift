@@ -9,20 +9,20 @@
 import UIKit
 
 class BookStoreDetailViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let bookRecord = bookRecord else { return }
         print(bookRecord.volumeInfo.title)
-    
+        titleLabel.text = bookRecord.volumeInfo.title
+        authorLabel.text = bookRecord.volumeInfo.authors?.joined(separator: "\n")
+        authorLabel.lineBreakMode = .byWordWrapping
+        DescriptionTextView.text = bookRecord.volumeInfo.description
         
+        DescriptionTextView.layer.borderWidth = 0.5
         imageLoader()
     }
+    
     
     
     var bookRecord : Item? {
@@ -37,7 +37,7 @@ class BookStoreDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var bookImage: UIImageView!
-    @IBOutlet weak var reviewTextView: UITextView!
+    @IBOutlet weak var DescriptionTextView: UITextView!
     
     @IBAction func saveBookButton(_ sender: Any){
         
