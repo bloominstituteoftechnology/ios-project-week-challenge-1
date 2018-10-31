@@ -19,11 +19,11 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBAction func readSwitchAction(_ sender: Any) {
         switch readSwitch.isOn {
         case true:
-            book?.bookshelves.append(BookController.shared.bookshelves[0])
+            book?.bookshelves.append(BookController.shared.bookshelves[0].name)
             BookController.shared.bookshelves[0].books.append(book!)
             book?.read = true
         case false:
-            guard let indexPath = book?.bookshelves.firstIndex(where: { $0.name == "Read" }) else {return}
+            guard let indexPath = book?.bookshelves.firstIndex(of: "Read" ) else {return}
             book?.bookshelves.remove(at: indexPath)
             
             guard let bookIndex = BookController.shared.bookshelves[0].books.firstIndex(where: { $0.name == book?.name }) else {return}
@@ -44,16 +44,16 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         updateViews()
-        print(book)
     }
     
     
     
     func updateViews() {
         bookTitle.text = book?.name
-        if (book?.bookshelves.contains(where: { $0.name == "Read" }))! {
+        if (book?.bookshelves.contains("Read" ))! {
             book?.read = true
         }
+        
         readSwitch.setOn(book?.read ?? false, animated: false)
         if let smallImage = book?.image {
             ImageLoader.fetchImage(from: URL(string: (smallImage))) { (image) in
@@ -78,7 +78,7 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bookshelvesCell", for: indexPath)
         let bookshelf = book?.bookshelves[indexPath.row]
-        cell.textLabel?.text = bookshelf?.name
+        cell.textLabel?.text = bookshelf
         return cell
     }
     
@@ -93,7 +93,7 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 guard let book = self.book else {return}
                 let bookShelf = shelf
                 bookShelf.books.append(book)
-                book.bookshelves.append(bookShelf)
+                book.bookshelves.append(bookShelf.name)
                 self.updateViews()
                 self.tableView.reloadData()
                 

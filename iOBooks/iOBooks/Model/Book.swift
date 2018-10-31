@@ -9,16 +9,30 @@
 import Foundation
 
 
-class Book {
+class Book: Codable {
     let name: String
     let image: String?
     var review: String
     var read: Bool
     
-    var bookshelves: [Bookshelf] = []
-    
+    // bookshelf identifiers
+    var bookshelves: [String] = []
     
     init(name: String, image: String, review: String = "", read: Bool = false) {
         (self.name, self.image, self.review, self.read) = (name, image, review, read)
+    }
+}
+
+
+struct BookStub: Codable {
+    let name: String
+    let image: String?
+    var review: String
+    var read: Bool
+    
+    var bookshelves: [String] = []
+    
+    init(name: String, image: String, review: String, read: Bool, bookshelves: [String]) {
+        (self.name, self.image, self.review, self.read, self.bookshelves) = (name, image, review, read, bookshelves)
     }
 }

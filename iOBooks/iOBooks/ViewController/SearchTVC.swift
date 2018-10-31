@@ -54,7 +54,7 @@ class SearchTVC: UITableViewController, UISearchBarDelegate, SearchCellDelegate 
                 if let imageLinks = book.volumeInfo.imageLinks {
                     let bookObject = BookController.shared.newBook(name: book.volumeInfo.title, image:(imageLinks.smallThumbnail))
                     bookShelf.books.append(bookObject)
-                    bookObject.bookshelves.append(bookShelf)
+                    bookObject.bookshelves.append(bookShelf.name)
                 }
             }
             alertList.append(option)

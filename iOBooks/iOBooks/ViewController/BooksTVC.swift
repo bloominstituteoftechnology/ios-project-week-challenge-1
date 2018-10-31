@@ -57,7 +57,7 @@ class BooksTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard let book = bookshelf?.books[indexPath.row] else {return}
-            let replacedArray = book.bookshelves.filter({ $0.name != bookshelf?.name })
+            let replacedArray = book.bookshelves.filter({ $0 != bookshelf?.name })
             book.bookshelves = replacedArray
             bookshelf?.books.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)

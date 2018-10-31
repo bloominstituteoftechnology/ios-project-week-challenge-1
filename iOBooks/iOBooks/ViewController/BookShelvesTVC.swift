@@ -13,12 +13,17 @@ class BookShelvesTVC: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if BookController.shared.bookshelves.count < 2 {
-            BookController.shared.newShelf(name: "Read", books: [])
-            BookController.shared.newShelf(name: "Favorites", books: [])
+            let readShelf = BookController.shared.newShelf(name: "Read", books: [])
+            let favoritesShelf = BookController.shared.newShelf(name: "Favorites", books: [])
+
         }
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+//        BookController.shared.fetchRecords { success in
+//            guard success else {return}
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }
+        
     }
     
     
