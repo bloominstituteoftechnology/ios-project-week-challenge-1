@@ -14,6 +14,8 @@ class BookStoreSearchController: UITableViewController, UISearchBarDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.reloadData()
+        
     }
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -21,9 +23,9 @@ class BookStoreSearchController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 300
     }
-
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let book = searchBar.text else {return}
         
@@ -44,10 +46,20 @@ class BookStoreSearchController: UITableViewController, UISearchBarDelegate {
         
         let bookRecord = BookController.shared.bookRecords[indexPath.row]
         
-        cell.textLabel?.text = bookRecord.volumeInfo.title
-        cell.detailTextLabel?.text = bookRecord.volumeInfo.publishedDate
-//        cell.bookTitle.text = bookRecord.volumeInfo.title
-//        cell.bookAuthor.text = bookRecord.volumeInfo.publisher
+//        cell.textLabel?.text = bookRecord.volumeInfo.title
+//        cell.detailTextLabel?.text = bookRecord.volumeInfo.publishedDate
+        cell.bookTitle.text = bookRecord.volumeInfo.title
+        cell.bookAuthor.text = bookRecord.volumeInfo.publisher
+        cell.layer.borderWidth = 1
+        
+        // THIS TOOK FOREVER!  ATS Settings in pList!
+        ImageLoader.fetchImage(from: URL(string: bookRecord.volumeInfo.imageLinks.smallThumbnail)) { image in
+            guard let image = image else { return }
+            DispatchQueue.main.async {
+                cell.bookImage.image = image
+            }}
+            
+        
         return cell
     }
     

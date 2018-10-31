@@ -20,6 +20,7 @@
 		47EA24BB2188E42E007E08B5 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EA24BA2188E42E007E08B5 /* Book.swift */; };
 		47EA24BD2188F47C007E08B5 /* BookStoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EA24BC2188F47C007E08B5 /* BookStoreTableViewController.swift */; };
 		47EA24BF2188F8B8007E08B5 /* BookStoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EA24BE2188F8B8007E08B5 /* BookStoreDetailViewController.swift */; };
+		47EA24C121890E79007E08B5 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EA24C021890E79007E08B5 /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		47EA24BA2188E42E007E08B5 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		47EA24BC2188F47C007E08B5 /* BookStoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStoreTableViewController.swift; sourceTree = "<group>"; };
 		47EA24BE2188F8B8007E08B5 /* BookStoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStoreDetailViewController.swift; sourceTree = "<group>"; };
+		47EA24C021890E79007E08B5 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				4782FAB7218774C4001811A6 /* AppDelegate.swift */,
+				47EA24C021890E79007E08B5 /* ImageLoader.swift */,
 				4782FABE218774C5001811A6 /* Assets.xcassets */,
 				4782FAC0218774C5001811A6 /* LaunchScreen.storyboard */,
 				4782FAC3218774C5001811A6 /* Info.plist */,
@@ -206,6 +209,7 @@
 				47EA24BD2188F47C007E08B5 /* BookStoreTableViewController.swift in Sources */,
 				47EA24B92188E3F9007E08B5 /* BookFeed.swift in Sources */,
 				47EA24BB2188E42E007E08B5 /* Book.swift in Sources */,
+				47EA24C121890E79007E08B5 /* ImageLoader.swift in Sources */,
 				4782FAF521879F19001811A6 /* BookStoreSearchController.swift in Sources */,
 				4782FAEB218775F7001811A6 /* BookStoreTableViewCell.swift in Sources */,
 				4782FAB8218774C4001811A6 /* AppDelegate.swift in Sources */,

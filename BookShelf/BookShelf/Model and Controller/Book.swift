@@ -15,7 +15,7 @@ class Book {
     let image: String?
     let author: String
     var review: String?
-    var read: Bool
+    var read: Bool // toggle
     
     init(name: String, image: String, author: String, review: String? = "", read: Bool = false) {
          self.name = name
