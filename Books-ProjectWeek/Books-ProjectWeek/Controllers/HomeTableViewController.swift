@@ -94,4 +94,15 @@ class HomeTableViewController: UITableViewController {
         return 200
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue , sender: sender)
+        NSLog("segue type \(type(of: segue.destination))")
+        if let destination = segue.destination as? DetailViewController {
+            if let cell = sender as? ShelfCollectionViewCell {
+             destination.newBook = cell.book
+            }
+            
+        }
+        
+    }
 }

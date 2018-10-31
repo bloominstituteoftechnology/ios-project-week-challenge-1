@@ -25,4 +25,6 @@ class ShelfCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     
     
+    
+    
 }
