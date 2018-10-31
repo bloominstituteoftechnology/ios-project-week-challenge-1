@@ -18,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="241" id="2Bd-ff-UHY" customClass="HomeTableViewCell" customModule="Books_ProjectWeek" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="241"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="300" id="2Bd-ff-UHY" customClass="HomeTableViewCell" customModule="Books_ProjectWeek" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Bd-ff-UHY" id="WAA-ff-tXJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="240.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Bd-ff-UHY" id="WAA-ff-tXJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="299.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E1r-gQ-Jjm">
@@ -36,14 +36,14 @@
                                             </collectionViewFlowLayout>
                                             <cells>
                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="KbF-fR-5WF" customClass="ShelfCollectionViewCell" customModule="Books_ProjectWeek" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="131" height="218"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="131" height="233"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="131" height="218"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="131" height="233"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cfA-9j-pfD">
-                                                                <rect key="frame" x="0.0" y="0.0" width="131" height="218"/>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cfA-9j-pfD">
+                                                                <rect key="frame" x="0.0" y="0.0" width="131" height="232"/>
                                                             </imageView>
                                                         </subviews>
                                                     </view>
@@ -53,6 +53,7 @@
                                                         <constraint firstItem="cfA-9j-pfD" firstAttribute="top" secondItem="KbF-fR-5WF" secondAttribute="top" id="mGq-uv-6Nv"/>
                                                         <constraint firstItem="cfA-9j-pfD" firstAttribute="leading" secondItem="KbF-fR-5WF" secondAttribute="leading" id="sN3-SM-JO4"/>
                                                     </constraints>
+                                                    <size key="customSize" width="131" height="233"/>
                                                     <connections>
                                                         <outlet property="image" destination="cfA-9j-pfD" id="g9E-X6-yhf"/>
                                                     </connections>

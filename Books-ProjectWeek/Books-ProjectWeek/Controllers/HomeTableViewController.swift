@@ -34,9 +34,9 @@ class HomeTableViewController: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
  
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        NSLog("viewWillAppear")
         let fb = RealFirebase()
         fb.getAllShelves {
             if let error = $1  {
@@ -79,11 +79,19 @@ class HomeTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         if let cell = cell as? HomeTableViewCell {
             guard let shelves = shelves else {return cell}
+            cell.books = books
             cell.shelf = shelves[indexPath.row]
+            NSLog("shelf: \(cell.shelf?.name) books: \(cell.shelf?.ids?.count)")
             return cell
         }
         
 
         return cell
     }
+
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+
 }

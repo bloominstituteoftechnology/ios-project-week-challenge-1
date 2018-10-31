@@ -10,14 +10,16 @@ import UIKit
 
 class HomeTableViewCell: UITableViewCell {
 
+    let ds = ShelfUICollectionView()
+
     var books: [String:Volume]?
     var shelf: Shelf? {
         didSet {
-            let ds = ShelfUICollectionView()
             ds.books = books
             ds.shelf = shelf
             collectionView.dataSource = ds
             labelName.text = shelf?.name
+            collectionView.reloadData()
         }
     }
     
