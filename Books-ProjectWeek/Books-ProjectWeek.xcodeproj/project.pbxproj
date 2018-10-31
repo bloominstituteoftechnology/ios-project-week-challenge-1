@@ -19,6 +19,8 @@
 		44A441212187B67A009E3C15 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A441202187B67A009E3C15 /* ImageLoader.swift */; };
 		44A441232187EE73009E3C15 /* ImageCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A441222187EE73009E3C15 /* ImageCellTableViewCell.swift */; };
 		44E88FF521890945007CD679 /* ShelvesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E88FF421890945007CD679 /* ShelvesCollectionViewController.swift */; };
+		44E88FF721895033007CD679 /* ShelvesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E88FF621895033007CD679 /* ShelvesTableViewController.swift */; };
+		44E88FF92189505A007CD679 /* ShelvesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E88FF82189505A007CD679 /* ShelvesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		44A441202187B67A009E3C15 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		44A441222187EE73009E3C15 /* ImageCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCellTableViewCell.swift; sourceTree = "<group>"; };
 		44E88FF421890945007CD679 /* ShelvesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelvesCollectionViewController.swift; sourceTree = "<group>"; };
+		44E88FF621895033007CD679 /* ShelvesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelvesTableViewController.swift; sourceTree = "<group>"; };
+		44E88FF82189505A007CD679 /* ShelvesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelvesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +98,11 @@
 		44A4411F2187B64C009E3C15 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				44E88FF82189505A007CD679 /* ShelvesTableViewCell.swift */,
 				44E88FF421890945007CD679 /* ShelvesCollectionViewController.swift */,
 				44A4411B21879933009E3C15 /* SearchTableViewController.swift */,
 				44A4411D2187AF32009E3C15 /* DetailViewController.swift */,
+				44E88FF621895033007CD679 /* ShelvesTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -176,10 +182,12 @@
 				44E88FF521890945007CD679 /* ShelvesCollectionViewController.swift in Sources */,
 				44A4411721879180009E3C15 /* FirebaseModel.swift in Sources */,
 				44A4411621879180009E3C15 /* APIModel.swift in Sources */,
+				44E88FF92189505A007CD679 /* ShelvesTableViewCell.swift in Sources */,
 				44A4411C21879933009E3C15 /* SearchTableViewController.swift in Sources */,
 				44A4411E2187AF32009E3C15 /* DetailViewController.swift in Sources */,
 				44A441232187EE73009E3C15 /* ImageCellTableViewCell.swift in Sources */,
 				44A4411921879286009E3C15 /* Fetcher.swift in Sources */,
+				44E88FF721895033007CD679 /* ShelvesTableViewController.swift in Sources */,
 				44A4410321879154009E3C15 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,7 +21,7 @@ protocol Firebase {
     func renameBookShelf(name:String, newName: String, completion: @escaping (Error?) -> Void) -> Void
     func getAllShelves(completion: @escaping ([String:Shelf]?, Error?)-> Void) -> Void
 
-    func addBookToShelf(name: String, id: String, completion: @escaping (Error?) -> Void ) -> Void
+    func addBookToShelf  (name: String, id: String, completion: @escaping (Error?) -> Void) -> Void
     func delBookFromShelf(name: String, id: String, completion: @escaping (Error?) -> Void) -> Void
 }
 
@@ -140,7 +140,7 @@ class RealFirebase: Firebase {
                     return
                 }
                 if let shelf = shelf {
-                    let newShelf = Shelf(name: name, ids: shelf.ids.filter {$0.id != id})
+                    let newShelf = Shelf(name: name, ids: shelf.ids.filter {$0.value.id != id})
                     
                     Fetcher.PUT(
                         url: url,
@@ -203,7 +203,7 @@ class RealFirebase: Firebase {
         
         Fetcher.PUT(
             url: url,
-            body: Shelf(name: name, ids:[]),
+            body: Shelf(name: name, ids:[:]),
             completion: convertCompletion(completion: completion)
         )
     }
@@ -220,7 +220,11 @@ struct BookID: Codable {
 
 struct Shelf: Codable {
     let name: String
-    let ids: [BookID]
+    let ids: [String:BookID]
+    
+    func hasBook(id:String) ->Bool{
+       return ids.values.contains {$0.id == id}
+    }
 }
 
 struct Review: Codable{

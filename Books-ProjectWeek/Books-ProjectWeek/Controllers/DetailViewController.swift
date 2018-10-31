@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, UIPickerViewDelegate {
+class DetailViewController: UIViewController {
     var newBook: Volume? {
         didSet{
             if let book = newBook {
@@ -45,40 +45,23 @@ class DetailViewController: UIViewController, UIPickerViewDelegate {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination =  segue.destination as? ShelvesTableViewController {
+            destination.book = newBook
+        }
+        
+    }
+    
+    
     @IBOutlet weak var descriptionBook: UITextView!
     @IBOutlet weak var bookName: UILabel!
     @IBOutlet weak var author: UILabel!
     @IBOutlet weak var bookImage: UIImageView!
     @IBOutlet weak var isRead: UISwitch!
-    @IBOutlet weak var booksPicker: UIPickerView!
-
+ 
     @IBAction func read(_ sender: UISwitch) {
         RealFirebase().markRead(id:(self.newBook?.id)!, read: sender.isOn) {
             NSLog("switch broken \($0)")
         }
-    }
-    
-    @IBAction func addToShelf(_ sender: Any) {
-        let alertController: UIAlertController = UIAlertController(title: "Add Book", message: "Please enter Book name", preferredStyle: .alert)
-        
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
-            //cancel code
-        }
-        alertController.addAction(cancelAction)
-        
-        //Create an optional action
-        let nextAction: UIAlertAction = UIAlertAction(title: "Add", style: .default) { action -> Void in
-            let text = (alertController.textFields?.first)?.text
-            RealFirebase().addBookToShelf(name: text!, id: (self.newBook?.id)!) {
-                NSLog("createShelf: \($0)")
-            }
-        }
-        alertController.addAction(nextAction)
-        
-        //Add text field
-        alertController.addTextField(configurationHandler: {(_) in })
-        
-        //Present the AlertController
-        present(alertController, animated: true, completion: nil)
     }
 }
