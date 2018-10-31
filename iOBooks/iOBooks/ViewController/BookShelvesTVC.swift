@@ -17,12 +17,11 @@ class BookShelvesTVC: UITableViewController {
             let favoritesShelf = BookController.shared.newShelf(name: "Favorites", books: [])
 
         }
-//        BookController.shared.fetchRecords { success in
-//            guard success else {return}
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
-//        }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+
+
         
     }
     

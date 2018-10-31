@@ -9,23 +9,23 @@
 import Foundation
 
 struct BookSearch: Codable {
-    let items: [Item]
+    var items: [Item]
 }
 
 struct Item: Codable {
-    let id, etag: String
-    let selfLink: String
-    let volumeInfo: VolumeInfo
+    var id, etag: String
+    var selfLink: String
+    var volumeInfo: VolumeInfo
 }
 
 struct VolumeInfo: Codable {
-    let title: String
-    let authors: [String]?
-    let imageLinks: ImageLinks?
+    var title: String
+    var authors: [String]?
+    var imageLinks: ImageLinks?
 }
 
 struct ImageLinks: Codable {
-    let smallThumbnail, thumbnail: String
+    var smallThumbnail, thumbnail: String
 }
 
 

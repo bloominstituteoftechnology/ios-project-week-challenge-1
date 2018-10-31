@@ -13,7 +13,11 @@ class BookController: Codable {
     private init() {}
     
     var bookSearch: BookSearch?
-    var bookshelves: [Bookshelf] = []
+    var bookshelves: [Bookshelf] = [] 
+//        didSet {
+//            uploadBooks(shelves: bookshelves)
+//        }
+    
     
     func newBook(name: String, image: String) -> Book {
         return Book(name: name, image: image, review: "", read: false)
@@ -137,7 +141,7 @@ class BookController: Codable {
                 bookStubArray.append(stubToBook(book: book))
             }
         }
-        print(bookStubArray)
+        
         var req = URLRequest(url: baseURL.appendingPathComponent("/bookStubs").appendingPathExtension("json"))
         req.httpMethod = "PUT"
         

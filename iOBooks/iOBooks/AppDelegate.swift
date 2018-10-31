@@ -16,9 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        print("About to downloadBooks")
         BookController.shared.downloadBooks()
-        print("After downloading books called")
         return true
     }
 
@@ -28,9 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        print("about to save books")
         BookController.shared.uploadBooks(shelves: BookController.shared.bookshelves)
-        print("after saving books called")
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
