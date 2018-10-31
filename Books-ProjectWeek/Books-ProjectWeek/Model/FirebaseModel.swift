@@ -140,7 +140,7 @@ class RealFirebase: Firebase {
                     return
                 }
                 if let shelf = shelf {
-                    let newShelf = Shelf(name: name, ids: shelf.ids.filter {$0.value.id != id})
+                    let newShelf = Shelf(name: name, ids: shelf.ids?.filter {$0.value.id != id} ?? [:])
                     
                     Fetcher.PUT(
                         url: url,
@@ -220,10 +220,15 @@ struct BookID: Codable {
 
 struct Shelf: Codable {
     let name: String
-    let ids: [String:BookID]
+    let ids: [String:BookID]?
     
-    func hasBook(id:String) ->Bool{
-       return ids.values.contains {$0.id == id}
+    var orderedIds: [String]{
+      guard let ids = ids else {return []}
+      return Array(ids.values.map{$0.id})
+    }
+    
+    func hasBook(id:String) -> Bool{
+       return ids?.values.contains {$0.id == id} ?? false
     }
 }
 

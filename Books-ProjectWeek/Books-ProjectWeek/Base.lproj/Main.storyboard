@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7M5-y7-wfu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4M-Dn-wKV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,101 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Home Table View Controller-->
+        <scene sceneID="fFg-un-v21">
+            <objects>
+                <tableViewController id="x9H-bl-drr" customClass="HomeTableViewController" customModule="Books_ProjectWeek" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OWP-x5-myx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="241" id="2Bd-ff-UHY" customClass="HomeTableViewCell" customModule="Books_ProjectWeek" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="241"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Bd-ff-UHY" id="WAA-ff-tXJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="240.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E1r-gQ-Jjm">
+                                            <rect key="frame" x="16" y="66" width="343" height="164"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ogc-Li-V1b">
+                                                <size key="itemSize" width="131" height="218"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="KbF-fR-5WF" customClass="ShelfCollectionViewCell" customModule="Books_ProjectWeek" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="131" height="218"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="131" height="218"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cfA-9j-pfD">
+                                                                <rect key="frame" x="0.0" y="0.0" width="131" height="218"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                    </view>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="cfA-9j-pfD" secondAttribute="trailing" id="Y4R-Vg-ax2"/>
+                                                        <constraint firstAttribute="bottom" secondItem="cfA-9j-pfD" secondAttribute="bottom" id="YgB-v7-6Pa"/>
+                                                        <constraint firstItem="cfA-9j-pfD" firstAttribute="top" secondItem="KbF-fR-5WF" secondAttribute="top" id="mGq-uv-6Nv"/>
+                                                        <constraint firstItem="cfA-9j-pfD" firstAttribute="leading" secondItem="KbF-fR-5WF" secondAttribute="leading" id="sN3-SM-JO4"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <outlet property="image" destination="cfA-9j-pfD" id="g9E-X6-yhf"/>
+                                                    </connections>
+                                                </collectionViewCell>
+                                            </cells>
+                                        </collectionView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTG-j5-ByP">
+                                            <rect key="frame" x="16" y="11" width="343" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="E1r-gQ-Jjm" firstAttribute="leading" secondItem="WAA-ff-tXJ" secondAttribute="leadingMargin" id="7VC-F5-Ii8"/>
+                                        <constraint firstItem="wTG-j5-ByP" firstAttribute="top" secondItem="WAA-ff-tXJ" secondAttribute="topMargin" id="Hd4-JD-FDS"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="wTG-j5-ByP" secondAttribute="trailing" id="Ifc-Uy-bnA"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="E1r-gQ-Jjm" secondAttribute="trailing" id="Nb4-Ls-zcR"/>
+                                        <constraint firstItem="E1r-gQ-Jjm" firstAttribute="bottom" secondItem="WAA-ff-tXJ" secondAttribute="bottomMargin" id="SRe-CX-zvT"/>
+                                        <constraint firstItem="E1r-gQ-Jjm" firstAttribute="top" secondItem="WAA-ff-tXJ" secondAttribute="topMargin" id="fEd-Kq-aH6"/>
+                                        <constraint firstItem="wTG-j5-ByP" firstAttribute="leading" secondItem="WAA-ff-tXJ" secondAttribute="leadingMargin" id="mFv-Fz-J7V"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="collectionView" destination="E1r-gQ-Jjm" id="ayf-IB-y3m"/>
+                                    <outlet property="labelName" destination="wTG-j5-ByP" id="Jzt-Du-lJv"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="x9H-bl-drr" id="2Au-FN-DUa"/>
+                            <outlet property="delegate" destination="x9H-bl-drr" id="iLz-IC-Ilt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="c22-HV-c47">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="dSa-EX-pK1">
+                            <connections>
+                                <action selector="addShelf:" destination="x9H-bl-drr" id="0qi-uH-C35"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="7vv-Xr-qBs">
+                            <connections>
+                                <segue destination="Nyb-Mt-XsI" kind="show" id="zeZ-ei-HFe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XLc-BY-Iwc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3504.8000000000002" y="-18.440779610194905"/>
+        </scene>
         <!--SeachTableViewController-->
         <scene sceneID="AmM-Fp-znJ">
             <objects>
@@ -63,7 +158,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FkB-aZ-Mr0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3689" y="-36"/>
+            <point key="canvasLocation" x="4628" y="-36.431784107946029"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="3X2-gW-tsR">
@@ -143,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pa0-LV-0Cg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4765.6000000000004" y="-36.431784107946029"/>
+            <point key="canvasLocation" x="5704.8000000000002" y="-36.431784107946029"/>
         </scene>
         <!--Shelves Table View Controller-->
         <scene sceneID="BND-t1-gE6">
@@ -185,71 +280,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="96V-DN-RrP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5801" y="-50"/>
-        </scene>
-        <!--Shelves Collection View Controller-->
-        <scene sceneID="QWS-31-TUg">
-            <objects>
-                <collectionViewController id="ceF-Rq-QaN" customClass="ShelvesCollectionViewController" customModule="Books_ProjectWeek" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="HNe-lI-BFH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6Iq-Pj-8um">
-                            <size key="itemSize" width="113" height="97"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Gln-Xe-uWc">
-                                <rect key="frame" x="0.0" y="0.0" width="113" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="113" height="97"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="ceF-Rq-QaN" id="zp8-ut-gKW"/>
-                            <outlet property="delegate" destination="ceF-Rq-QaN" id="pLH-X5-P5J"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="T99-nO-5wP">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="EzP-mU-PpJ">
-                            <connections>
-                                <action selector="addShelf:" destination="ceF-Rq-QaN" id="hHV-TL-765"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="h0j-ll-VK4">
-                            <connections>
-                                <segue destination="Nyb-Mt-XsI" kind="show" id="gQ7-HP-2kO"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6x7-mP-cAm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2893.5999999999999" y="-21.139430284857571"/>
+            <point key="canvasLocation" x="6740" y="-50.824587706146929"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="cJH-eR-tFG">
+        <scene sceneID="Qld-8D-8k2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7M5-y7-wfu" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M4M-Dn-wKV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Rhj-e2-mJj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Y2N-6u-clM">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ceF-Rq-QaN" kind="relationship" relationship="rootViewController" id="DmW-3X-r5y"/>
+                        <segue destination="x9H-bl-drr" kind="relationship" relationship="rootViewController" id="Lp8-aD-5PI"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XHn-O3-AHe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BhM-dV-S5T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1964" y="-21"/>
+            <point key="canvasLocation" x="2628" y="-82.3088455772114"/>
         </scene>
     </scenes>
 </document>
