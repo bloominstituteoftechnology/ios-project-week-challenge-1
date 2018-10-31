@@ -13,23 +13,50 @@ import UIKit
 
 protocol Firebase {
     func storeBooks(volume: Volume, completion: @escaping (Error?) -> Void) -> Void
-    func getBooks(
-        completion: @escaping ([String:Volume]?, Error?) -> Void
-        ) -> Void
+    func getBooks(completion: @escaping ([String:Volume]?, Error?) -> Void) -> Void
     
     
     func markRead(id: String, read: Bool, completion: @escaping (Error?) -> Void) -> Void
-    
+    func isRead(id: String, completion: @escaping (ReadBook?, Error?)-> Void)-> Void
     func createShelf(name: String, completion: @escaping (Error?) -> Void) -> Void
     func deleteShelf(name: String, completion: @escaping (Error?) -> Void) -> Void
     func addBookToShelf(name: String, id: String, completion: @escaping (Error?) -> Void ) -> Void
     func delBookFromShelf(name: String, id: String, completion: @escaping (Error?) -> Void) -> Void
     func renameBookShelf(name:String, newName: String, completion: @escaping (Error?) -> Void) -> Void
-    
+    func getAllShelves(completion: @escaping ([String:Shelf]?, Error?)-> Void) -> Void
     // func featuredBooks(name: String, id:String)-> Void
 }
 
 class RealFirebase: Firebase {
+    func isRead(id: String, completion: @escaping (ReadBook?, Error?) -> Void) {
+        let url = RealFirebase.baseURL
+            .appendingPathComponent(userId)
+            .appendingPathComponent("read")
+            .appendingPathComponent(id)
+            .appendingPathExtension("json")
+        
+        Fetcher.GET(
+            url: url,
+            
+            completion: completion
+        )
+    }
+    
+   
+    
+    func getAllShelves(completion: @escaping ([String : Shelf]?, Error?) -> Void) {
+        let url = RealFirebase.baseURL
+            .appendingPathComponent(userId)
+            .appendingPathComponent("shelves")
+            .appendingPathExtension("json")
+        Fetcher.GET(url: url,
+                    completion: completion
+        )
+        
+        
+    }
+    
+    
     func storeBooks(volume: Volume, completion: @escaping (Error?) -> Void) {
         let url = RealFirebase.baseURL
             .appendingPathComponent("volumes")
@@ -100,7 +127,7 @@ class RealFirebase: Firebase {
         
         Fetcher.POST(
             url: url,
-            body: id,
+            body: BookID(id:id),
             completion: convertCompletion(completion: completion)
         )
         
@@ -124,7 +151,7 @@ class RealFirebase: Firebase {
                     return
                 }
                 if let shelf = shelf {
-                    let newShelf = Shelf(name: name, ids: shelf.ids.filter {$0 != id})
+                    let newShelf = Shelf(name: name, ids: shelf.ids.filter {$0.id != id})
                     
                     Fetcher.PUT(
                         url: url,
@@ -137,10 +164,7 @@ class RealFirebase: Firebase {
             }
         )
         
-        
-        
-        
-        
+  
     }
     
     func renameBookShelf(name: String, newName: String, completion: @escaping (Error?) -> Void) {
@@ -222,9 +246,13 @@ struct ReadBook: Codable {
     let read: Bool
 }
 
+struct BookID: Codable {
+    let id: String
+}
+
 struct Shelf: Codable {
     let name: String
-    let ids: [String]
+    let ids: [BookID]
 }
 
 struct Review: Codable{
