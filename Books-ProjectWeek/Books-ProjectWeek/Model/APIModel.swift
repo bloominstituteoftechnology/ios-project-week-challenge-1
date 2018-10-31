@@ -37,9 +37,7 @@ class GoogleBooksApi: API {
         
         Fetcher.GET(url: url, completion: completion)
     }
-    
 }
-
 
 struct SearchResults: Codable {
     let items: [Volume]
@@ -86,4 +84,3 @@ struct ImageLinks: Codable {
 struct IndustryIdentifier: Codable {
     let type, identifier: String
 }
-

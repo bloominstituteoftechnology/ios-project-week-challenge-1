@@ -9,25 +9,26 @@
 import Foundation
 import UIKit
 
-
-
 protocol Firebase {
     func storeBooks(volume: Volume, completion: @escaping (Error?) -> Void) -> Void
     func getBooks(completion: @escaping ([String:Volume]?, Error?) -> Void) -> Void
     
-    
     func markRead(id: String, read: Bool, completion: @escaping (Error?) -> Void) -> Void
     func isRead(id: String, completion: @escaping (ReadBook?, Error?)-> Void)-> Void
+    
     func createShelf(name: String, completion: @escaping (Error?) -> Void) -> Void
     func deleteShelf(name: String, completion: @escaping (Error?) -> Void) -> Void
-    func addBookToShelf(name: String, id: String, completion: @escaping (Error?) -> Void ) -> Void
-    func delBookFromShelf(name: String, id: String, completion: @escaping (Error?) -> Void) -> Void
     func renameBookShelf(name:String, newName: String, completion: @escaping (Error?) -> Void) -> Void
     func getAllShelves(completion: @escaping ([String:Shelf]?, Error?)-> Void) -> Void
-    // func featuredBooks(name: String, id:String)-> Void
+
+    func addBookToShelf(name: String, id: String, completion: @escaping (Error?) -> Void ) -> Void
+    func delBookFromShelf(name: String, id: String, completion: @escaping (Error?) -> Void) -> Void
 }
 
 class RealFirebase: Firebase {
+    private static let baseURL = URL(string: "https://books-e1fe5.firebaseio.com/")!
+    private let userId = UIDevice.current.identifierForVendor!.uuidString
+    
     func isRead(id: String, completion: @escaping (ReadBook?, Error?) -> Void) {
         let url = RealFirebase.baseURL
             .appendingPathComponent(userId)
@@ -37,25 +38,21 @@ class RealFirebase: Firebase {
         
         Fetcher.GET(
             url: url,
-            
             completion: completion
         )
     }
-    
-   
     
     func getAllShelves(completion: @escaping ([String : Shelf]?, Error?) -> Void) {
         let url = RealFirebase.baseURL
             .appendingPathComponent(userId)
             .appendingPathComponent("shelves")
             .appendingPathExtension("json")
-        Fetcher.GET(url: url,
-                    completion: completion
+        
+        Fetcher.GET(
+            url: url,
+            completion: completion
         )
-        
-        
     }
-    
     
     func storeBooks(volume: Volume, completion: @escaping (Error?) -> Void) {
         let url = RealFirebase.baseURL
@@ -63,9 +60,10 @@ class RealFirebase: Firebase {
             .appendingPathComponent(volume.id)
             .appendingPathExtension("json")
         
-        Fetcher.PUT(url: url,
-                    body: volume,
-                    completion: convertCompletion(completion: completion)
+        Fetcher.PUT(
+            url: url,
+            body: volume,
+            completion: convertCompletion(completion: completion)
         )
     }
     
@@ -73,11 +71,11 @@ class RealFirebase: Firebase {
         let url = RealFirebase.baseURL
             .appendingPathComponent("volumes")
             .appendingPathExtension("json")
-        Fetcher.GET(url: url,
-                    completion: completion
+        
+        Fetcher.GET(
+            url: url,
+            completion: completion
         )
-        
-        
     }
     
     private func convertCompletion(completion: @escaping (Error?) -> Void) -> (Nothing?, Error?) -> Void {
@@ -85,7 +83,6 @@ class RealFirebase: Firebase {
     }
     
     func markRead(id: String, read: Bool, completion: @escaping (Error?) -> Void) {
-        // https://books-e1fe5.firebaseio.com/<user id>/read/true.json
         let url = RealFirebase.baseURL
             .appendingPathComponent(userId)
             .appendingPathComponent("read")
@@ -97,8 +94,6 @@ class RealFirebase: Firebase {
             body: ReadBook(id: id, read: read),
             completion: convertCompletion(completion: completion)
         )
-        
-        
     }
     
     func deleteShelf(name: String, completion: @escaping (Error?) -> Void) {
@@ -108,16 +103,13 @@ class RealFirebase: Firebase {
             .appendingPathComponent(name)
             .appendingPathExtension("json")
         
-        Fetcher.DELETE(url: url,
-                       completion: convertCompletion(completion: completion)
+        Fetcher.DELETE(
+            url: url,
+            completion: convertCompletion(completion: completion)
         )
-        
-        
-        
     }
     
     func addBookToShelf(name: String, id: String, completion: @escaping (Error?) -> Void) {
-        
         let url = RealFirebase.baseURL
             .appendingPathComponent(userId)
             .appendingPathComponent("shelves")
@@ -130,12 +122,9 @@ class RealFirebase: Firebase {
             body: BookID(id:id),
             completion: convertCompletion(completion: completion)
         )
-        
-        
     }
     
     func delBookFromShelf(name: String, id: String, completion: @escaping (Error?) -> Void) {
-        
         let url = RealFirebase.baseURL
             .appendingPathComponent(userId)
             .appendingPathComponent("shelves")
@@ -158,17 +147,12 @@ class RealFirebase: Firebase {
                         body: newShelf,
                         completion: self.convertCompletion(completion: completion)
                     )
-                    
-                    
                 }
             }
         )
-        
-  
     }
     
     func renameBookShelf(name: String, newName: String, completion: @escaping (Error?) -> Void) {
-     
         let oldUrl = RealFirebase.baseURL
             .appendingPathComponent(userId)
             .appendingPathComponent("shelves")
@@ -189,40 +173,28 @@ class RealFirebase: Firebase {
                     completion(error)
                     return
                 }
+                
                 if let shelf = shelf {
                     let newShelf = Shelf(name: newName, ids:shelf.ids)
                     
                     Fetcher.PUT(
                         url: newUrl,
                         body: newShelf,
-                        completion: { (nothing:Nothing?, error: Error?) in
+                        completion: {
+                            (nothing:Nothing?, error: Error?) in
                             if let error = error {
                                 completion(error)
                                 return
                             }
                             Fetcher.DELETE(url: oldUrl, completion: self.convertCompletion(completion: completion))
-                    }
-                        
+                        }
                     )
-                    
-                    
                 }
-        }
+            }
         )
-        
-        
-        
-        
     }
     
-    
-    
-    static let baseURL = URL(string: "https://books-e1fe5.firebaseio.com/")!
     func createShelf(name: String, completion: @escaping (Error?) -> Void) {
-        
-        
-        // https://books-e1fe5.firebaseio.com/<user id>/shelves/<shelf name>.json
-        
         let url = RealFirebase.baseURL
             .appendingPathComponent(userId)
             .appendingPathComponent("shelves")
@@ -235,10 +207,6 @@ class RealFirebase: Firebase {
             completion: convertCompletion(completion: completion)
         )
     }
-    
-    let userId = UIDevice.current.identifierForVendor!.uuidString
-    
-    
 }
 
 struct ReadBook: Codable {
@@ -259,5 +227,4 @@ struct Review: Codable{
     let userId: String
     let review: String
     let bookId: String
-    
 }
