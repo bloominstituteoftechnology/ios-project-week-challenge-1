@@ -14,12 +14,21 @@ class BookStoreDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         guard let bookRecord = bookRecord else { return }
         print(bookRecord.volumeInfo.title)
+        
+        // connect outlets
         titleLabel.text = bookRecord.volumeInfo.title
         authorLabel.text = bookRecord.volumeInfo.authors?.joined(separator: "\n")
         authorLabel.lineBreakMode = .byWordWrapping
         DescriptionTextView.text = bookRecord.volumeInfo.description
         
+        if DescriptionTextView.text == "" {
+            DescriptionTextView.text = "No Book Description Available"
+        }
+        
+        // UI borders
         DescriptionTextView.layer.borderWidth = 0.5
+        
+        // load image
         imageLoader()
     }
     
