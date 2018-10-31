@@ -11,7 +11,6 @@ protocol BooksListBusinessLogic {
 
 protocol BooksListDataStore {
     var bookModel: BookModel! { get set }
-//    var searchWord: BooksListViewController? { get set }
 }
 
 class BooksListInteractor: BooksListBusinessLogic, BooksListDataStore {
@@ -25,8 +24,6 @@ class BooksListInteractor: BooksListBusinessLogic, BooksListDataStore {
     // MARK: - Logic Properties
     var startIndex: Int = 0
     var orderBy = BookQuery.OrderBy.relevance
-    
-    
     
     // MARK: - Business logic
     func doGetBooks(request: BooksList.GetBooks.Request) {

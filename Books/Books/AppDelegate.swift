@@ -18,8 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
 //        self.window = UIWindow(frame: UIScreen.main.bounds)
-//        self.window?.rootViewController = ViewController()
+//        let mainTabBarController = MainTabBarController()
+//        self.window?.rootViewController = mainTabBarController
+//        window?.backgroundColor = UIColor.white
 //        self.window?.makeKeyAndVisible()
+        
         Manager.navigation.loadRoot(viewController: SplashScreenViewController())
         
         return true

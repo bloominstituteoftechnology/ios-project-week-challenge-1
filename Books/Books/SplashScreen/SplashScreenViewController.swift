@@ -33,6 +33,12 @@ class SplashScreenViewController: UIViewController, SplashScreenDisplayLogic {
         setupConstraints()
     }
     
+//    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        
+//    }
+    
     // MARK: - View lifecycle
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

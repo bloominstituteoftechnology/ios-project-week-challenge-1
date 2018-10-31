@@ -1,7 +1,7 @@
 import UIKit
 
 protocol BookDetailsPresentationLogic {
-    func presentSomething(response: BookDetails.Something.Response)
+    func presentGetBook(response: BookDetails.GetBook.Response)
 }
 
 class BookDetailsPresenter: BookDetailsPresentationLogic {
@@ -9,8 +9,10 @@ class BookDetailsPresenter: BookDetailsPresentationLogic {
     weak var viewController: BookDetailsDisplayLogic?
     
     // MARK: - Presentation logic
-    func presentSomething(response: BookDetails.Something.Response) {
-        let viewModel = BookDetails.Something.ViewModel()
+    func presentGetBook(response: BookDetails.GetBook.Response) {
+        let result = response.result
+        let viewModel = BookDetails.GetBook.ViewModel(result: result)
         viewController?.displaySomething(viewModel: viewModel)
+        
     }
 }

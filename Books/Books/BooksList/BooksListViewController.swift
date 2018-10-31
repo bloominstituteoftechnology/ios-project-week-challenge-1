@@ -19,6 +19,7 @@ class BooksListViewController: UIViewController, BooksListDisplayLogic {
     var bookModel: BookModel?
     var searchWord: String = "iOS"
     
+    
     // MARK: - UI Properties
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     lazy fileprivate var adapter: ListAdapter = {
@@ -62,8 +63,8 @@ class BooksListViewController: UIViewController, BooksListDisplayLogic {
         searchController.searchBar.placeholder = "Search Books"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-
-//        searchController.delegate = self as? UISearchControllerDelegate
+        
+        //        searchController.delegate = self as? UISearchControllerDelegate
         searchController.searchBar.delegate = self
         doGetBooks()
     }
@@ -321,18 +322,20 @@ extension BooksListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         searchWord = searchController.searchBar.text!
         filterContentForSearchText(searchController.searchBar.text!)
+        //collectionView.reloadData()
     }
-
+    
 }
 
 extension BooksListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        //collectionView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchWord = searchBar.text ?? ""
-        collectionView.reloadData()
+        //DispatchQueue.main.async(execute: collectionView.reloadData)
+        //collectionView.reloadData()
         doGetBooks()
     }
 }
