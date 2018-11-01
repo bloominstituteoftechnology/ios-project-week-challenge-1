@@ -11,7 +11,7 @@ class BookDetailsViewController: UIViewController, BookDetailsDisplayLogic, Book
     
     weak var delegate: BookSectionControllerDelegate?
     var bookSectionModel: BookSectionModel!
-    
+    let urlKey = "https://books.google.com/books?id=ck1EDwAAQBAJ&printsec=frontcover"
     func didSelect(bookModel: BookModel, at index: Int) {
         delegate?.didSelect(bookModel: self.bookSectionModel.bookModels[index], at: index)
     }
@@ -145,6 +145,12 @@ class BookDetailsViewController: UIViewController, BookDetailsDisplayLogic, Book
         self.navigationController?.popViewController(animated: true)
     }
     
+    var viewController = BookshelfViewController()
+    
+    func saveAction() -> Void {
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     private func setupComponents() {
         // self
         //title = "BookTitle"
@@ -153,8 +159,18 @@ class BookDetailsViewController: UIViewController, BookDetailsDisplayLogic, Book
         //loadUIObjects(bookModel: bookModel, position: self)
 //        guard let thumbnail = bookModel.thumbnail else { return }
         //imageView.image = bookModel.thumbnail
-            
-        imageView.kf.setImage(with: URL(string: "https://books.google.com/books?id=ck1EDwAAQBAJ&printsec=frontcover&dq=math&hl=en&sa=X&ved=0ahUKEwiRy8nu-7HeAhUGY6wKHUwhAocQ6wEIMTAB"))
+        
+        if let url = URL(string: urlKey){
+            do {
+                let data = try Data(contentsOf: url)
+                self.imageView.image = UIImage(data: data)
+            } catch let err {
+                print("Error: \(err.localizedDescription)")
+            }
+        }
+//        imageView.kf.setImage(with: URL(string: "https://books.google.com/books?id=ck1EDwAAQBAJ&printsec=frontcover"))
+        
+        
         titleLabel.text = "Do Not Open This Math Book:"   //bookModel.title
         subtitleLabel.text = "Addition + Subtraction"   //bookModel.subtitle
         authorsLabel.text = "Authors: Danica McKellar"//bookModel.authors  //fix from array of authors to author
@@ -179,22 +195,22 @@ class BookDetailsViewController: UIViewController, BookDetailsDisplayLogic, Book
         view.addSubview(imageView)
         
         // titleLabel
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
         titleLabel.textColor = .black
         view.addSubview(titleLabel)
         
         // subtitleLabel
-        subtitleLabel.font = UIFont.systemFont(ofSize: 20)
+        subtitleLabel.font = UIFont.systemFont(ofSize: 17)
         subtitleLabel.textColor = .black
         view.addSubview(subtitleLabel)
         
         // authorsLabel
-        authorsLabel.font = UIFont.italicSystemFont(ofSize: 20)
+        authorsLabel.font = UIFont.italicSystemFont(ofSize: 17)
         authorsLabel.textColor = .gray
         view.addSubview(authorsLabel)
         
         // averageRatingLabel
-        averageRatingLabel.font = UIFont.systemFont(ofSize: 18)
+        averageRatingLabel.font = UIFont.systemFont(ofSize: 15)
         averageRatingLabel.textColor = .gray
         view.addSubview(averageRatingLabel)
     }
@@ -205,9 +221,7 @@ class BookDetailsViewController: UIViewController, BookDetailsDisplayLogic, Book
     }
     
     @objc private func rightNavigationButtonDidTapped() {
-        print("Save hit but does nothihng right now")
-        //change this to something else
-
+        saveAction()
     }
     
     private func setupConstraints() {
