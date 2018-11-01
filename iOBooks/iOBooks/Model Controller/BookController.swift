@@ -79,11 +79,14 @@ class BookController: Codable {
     func createBookshelvesFromBooks(_ books:[Book]) {
         var shelves: [Bookshelf] = []
         for book in books {
+            print("books booshelves: \(book.bookshelves)")
             for shelf in book.bookshelves {
                 if shelves.contains(where: { $0.name == shelf }) {
+                    print("first")
                     guard let indexPath = shelves.firstIndex(where: { $0.name == shelf }) else {return}
                     shelves[indexPath].books.append(book)
                 } else {
+                    print("second")
                     let bookshelf = Bookshelf(name: shelf, books: [book])
                     shelves.append(bookshelf)
                 }
@@ -94,29 +97,35 @@ class BookController: Codable {
     
     func stubsToBooks(bookStubs: [String: BookStub]) -> [Book]{
         var books: [Book] = []
-        for (key, value) in bookStubs {
-            for currentBook in books {
-                if currentBook.identifier == UUID(uuidString: key) {
-                    // update the already existing book
+        for value in bookStubs.values {
+            if books.contains(where: { $0.identifier == UUID(uuidString: value.identifier) }) {
+                // update the already existing book
                 } else {
-                    let book = Book(name: value.name, image: value.image ?? " ", review: value.review, read: value.read, identifier: UUID(uuidString: key)!)
+                    let book = Book(name: value.name, image: value.image ?? " ", review: value.review, read: value.read, identifier: UUID(uuidString: value.identifier)!)
+                for shelf in value.bookshelves {
+                    book.bookshelves.append(shelf)
+                }
                     books.append(book)
                 }
+                
             }
+            return books
         }
-        return books
-    }
-    
+        
     
     func downloadBooks(completion: @escaping (_ success: Bool) -> Void ) {
         let url = baseURL.appendingPathComponent("bookStubs").appendingPathExtension("json")
         URLSession.shared.dataTask(with: url) { data, _, err in
             if let err = err {
                 NSLog("\(err)")
+                completion(false)
                 return
             }
             
-            guard let data = data else {return}
+            guard let data = data else {
+                completion(false)
+                return}
+            
             print(url)
             
             do {
@@ -125,10 +134,15 @@ class BookController: Codable {
                 let books = self.stubsToBooks(bookStubs: bookStubs)
                 // Maybe store book objects in model?
                 self.createBookshelvesFromBooks(books)
-                
                 // In completion, reload tableView
+                
+                print("bookstubs: \(bookStubs)")
+                print("books \(books)")
+                print("bookshelves: \(self.bookshelves)")
+                completion(true)
             } catch {
-                NSLog("Couldn't decode bookStubs")
+                NSLog("Couldn't decode bookStubs \(error)")
+                completion(false)
                 return
             }
             }.resume()

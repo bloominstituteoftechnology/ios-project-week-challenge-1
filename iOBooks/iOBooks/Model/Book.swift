@@ -16,7 +16,6 @@ class Book: Codable {
     var read: Bool
     
     var identifier: UUID
-    
     // bookshelf identifiers
     var bookshelves: [String] = []
     

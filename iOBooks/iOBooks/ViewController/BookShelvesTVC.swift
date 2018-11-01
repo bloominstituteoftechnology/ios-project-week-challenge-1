@@ -12,7 +12,7 @@ class BookShelvesTVC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        BookController.shared.downloadBooks { (success) in
+        BookController.shared.downloadBooks { success in
             if success {
                 print("Downloaded Books")
                 DispatchQueue.main.async {
@@ -57,10 +57,11 @@ class BookShelvesTVC: UITableViewController {
         if let destination = segue.destination as? BooksTVC {
             guard let indexPath = tableView.indexPathForSelectedRow else {return}
             destination.bookshelf = BookController.shared.bookshelves[indexPath.row]
-        } else if let destination = segue.destination as? CreateBookshelfVC {
-            guard segue.identifier == "toAddNewBookShelf" else {return}
-            // Do something when going to CreateBookShelfVC
         }
+//        else if let destination = segue.destination as? CreateBookshelfVC {
+//            guard segue.identifier == "toAddNewBookShelf" else {return}
+//            // Do something when going to CreateBookShelfVC
+//        }
     }
     
     
