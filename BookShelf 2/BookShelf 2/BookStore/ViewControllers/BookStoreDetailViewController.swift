@@ -14,6 +14,7 @@ class BookStoreDetailViewController: UIViewController {
     
     var mL: MyLibraryModel?
     var mLC: MyLibraryController?
+    var notification: LocalNotificationHelper?
     
     var refBooks: DatabaseReference!
     
@@ -42,6 +43,10 @@ class BookStoreDetailViewController: UIViewController {
         
         refBooks = Database.database().reference().child("Books")
         
+        refBooks.observe(.value, with: { snapshot in
+            print(snapshot.value as Any)
+        })
+        
     }
     
     func addBooks() {
@@ -49,10 +54,13 @@ class BookStoreDetailViewController: UIViewController {
         
         let book = ["id": key,
                     "bookTitle": titleLabel.text! as String,
-                    "bookAuthor": authorLabel.text! as String
-                    ]
+                    "bookAuthor": authorLabel.text! as String,
+                    "bookImage": testPicture!.thumbnail as String                    ]
         
         refBooks.child(key!).setValue(book)
+        
+        notification?.scheduleBookDelievery()
+        
     }
     
     var bookRecord : Item? {

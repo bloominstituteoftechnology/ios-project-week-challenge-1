@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/jerrickwarren/Desktop/ios3 Lambda/Week 4 : project week/ios-project-week-challenge-1/BookShelf 2/BookShelf 2/My Library/CollectionViewCell.swift">
+   </FileRef>
+   <FileRef
       location = "group:BookShelf2.xcodeproj">
    </FileRef>
    <FileRef

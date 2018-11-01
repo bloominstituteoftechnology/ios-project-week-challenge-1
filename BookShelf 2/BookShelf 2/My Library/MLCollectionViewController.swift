@@ -6,15 +6,31 @@
 //  Copyright © 2018 Jerrick Warren. All rights reserved.
 //
 
+import Firebase
+import FirebaseDatabase
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "collectionviewell"
 
 class MLCollectionViewController: UICollectionViewController {
     
+    var bsvd: BookStoreDetailViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        
+//        bsvd?.refBooks.observe(.value, with: { snapshot in
+//            print(snapshot.value as Any)
+//        })
 
+        func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            
+            bsvd?.refBooks.observe(.value, with: { snapshot in
+                print(snapshot.value as Any)
+            })
+            
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
