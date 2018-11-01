@@ -7,26 +7,30 @@ import Kingfisher
 class FavoritesViewController: UIViewController {
     
 //    var headerView = UIView!
+    var book: Book?
     
     private var titleLabel = UILabel()
     private var subtitleLabel = UILabel()
-    private var authorsLabel = UILabel()
-    private var averageRatingLabel = UILabel()
-    private var headerView = UIView()
+    private var authorsLabel = UITextField(frame: CGRect(x: 20, y: 100, width: 300, height: 100))
+    private var averageRatingLabel = UIButton()
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Favorites"
+        title = "Review"
         setupComponents()
         setupConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        authorsLabel.text = book?.review
+    }
+    
     private func setupComponents() {
-        view.backgroundColor = .red
+        view.backgroundColor = .white
         
-        titleLabel.text = "Title Label"   //bookModel.title
-        subtitleLabel.text = "Subtitle Label"   //bookModel.subtitle
-        authorsLabel.text = "Extra Label"//bookModel.authors  //fix from array of authors to author
-        averageRatingLabel.text = "N/A"
+        titleLabel.text = "Do Not Open This Math Book:"
+        subtitleLabel.text = "Write review"
+        averageRatingLabel.setTitle("Save", for: .normal)
         
         // navigation
         let leftButton = UIBarButtonItem(title: "Back",
@@ -44,6 +48,8 @@ class FavoritesViewController: UIViewController {
         // titleLabel
         titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
         titleLabel.textColor = .black
+        titleLabel.textAlignment = .center
+        titleLabel.numberOfLines = 0
         view.addSubview(titleLabel)
         
         // subtitleLabel
@@ -53,13 +59,22 @@ class FavoritesViewController: UIViewController {
         
         // authorsLabel
         authorsLabel.font = UIFont.italicSystemFont(ofSize: 17)
-        authorsLabel.textColor = .gray
+        authorsLabel.textColor = .black
+        //authorsLabel.backgroundColor = .red
+        authorsLabel.placeholder = "write something"
         view.addSubview(authorsLabel)
         
         // averageRatingLabel
-        averageRatingLabel.font = UIFont.systemFont(ofSize: 15)
-        averageRatingLabel.textColor = .gray
+        averageRatingLabel.backgroundColor = .blue
+        averageRatingLabel.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         view.addSubview(averageRatingLabel)
+    }
+    
+    @objc func buttonAction(sender: UIButton!) {
+        if let text = authorsLabel.text {
+            book?.review = text
+        }
+        navigationController?.popViewController(animated: true)
     }
     
     func backAction() -> Void {
@@ -84,10 +99,12 @@ class FavoritesViewController: UIViewController {
     private func setupConstraints() {
         
         // titleLabel
-        titleLabel.topAnchor == view.topAnchor
-        titleLabel.centerYAnchor == view.centerYAnchor
-        titleLabel.leftAnchor == view.rightAnchor + 10.0
-        titleLabel.rightAnchor <= view.rightAnchor - 10.0
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        titleLabel.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.4).isActive = true
+        titleLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.3).isActive = true
         
         // subtitleLabel
         subtitleLabel.topAnchor == titleLabel.bottomAnchor
@@ -98,7 +115,7 @@ class FavoritesViewController: UIViewController {
         authorsLabel.topAnchor == subtitleLabel.bottomAnchor
         authorsLabel.leftAnchor == titleLabel.leftAnchor
         authorsLabel.rightAnchor <= view.rightAnchor - 10.0
-        
+
         // averageRatingLabel
         averageRatingLabel.topAnchor == authorsLabel.bottomAnchor
         averageRatingLabel.leftAnchor == titleLabel.leftAnchor

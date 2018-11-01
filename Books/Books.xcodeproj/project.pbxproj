@@ -11,6 +11,7 @@
 		7B07F1A6218B3D5600A43AFB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B07F1A5218B3D5600A43AFB /* GoogleService-Info.plist */; };
 		7B07F1A8218B3E5000A43AFB /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B07F1A7218B3E5000A43AFB /* Book.swift */; };
 		7B07F1AA218B3F3500A43AFB /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B07F1A9218B3F3500A43AFB /* BookController.swift */; };
+		7B07F1AC218B888A00A43AFB /* BookSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B07F1AB218B888A00A43AFB /* BookSearch.swift */; };
 		7B1F1577218769A1008DBC95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1F1576218769A1008DBC95 /* AppDelegate.swift */; };
 		7B1F157E218769A3008DBC95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F157D218769A3008DBC95 /* Assets.xcassets */; };
 		7B1F1581218769A3008DBC95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F157F218769A3008DBC95 /* LaunchScreen.storyboard */; };
@@ -67,6 +68,7 @@
 		7B07F1A5218B3D5600A43AFB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7B07F1A7218B3E5000A43AFB /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		7B07F1A9218B3F3500A43AFB /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
+		7B07F1AB218B888A00A43AFB /* BookSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearch.swift; sourceTree = "<group>"; };
 		7B1F1573218769A1008DBC95 /* Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Books.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B1F1576218769A1008DBC95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B1F157D218769A3008DBC95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				7B85A2B52187FC480056C71A /* Bookshelf.swift */,
 				7B07F1A7218B3E5000A43AFB /* Book.swift */,
 				7B07F1A9218B3F3500A43AFB /* BookController.swift */,
+				7B07F1AB218B888A00A43AFB /* BookSearch.swift */,
 				7B85A2592187A76C0056C71A /* Result.swift */,
 				7B85A25B2187A78A0056C71A /* ErrorAPI.swift */,
 			);
@@ -533,6 +536,7 @@
 				7B85A2B12187C8480056C71A /* APIProtocol.swift in Sources */,
 				7B85A2AF2187C4830056C71A /* SpinnerSectionCell.swift in Sources */,
 				7B85A2AB2187C43B0056C71A /* LoaderView.swift in Sources */,
+				7B07F1AC218B888A00A43AFB /* BookSearch.swift in Sources */,
 				7B85A2842187AE920056C71A /* BooksListWorker.swift in Sources */,
 				7B85A26C2187A9A60056C71A /* LoggerManager.swift in Sources */,
 				7B85A2962187C2980056C71A /* BookSectionController.swift in Sources */,

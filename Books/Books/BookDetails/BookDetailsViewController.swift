@@ -183,7 +183,7 @@ class BookDetailsViewController: UIViewController, BookDetailsDisplayLogic, Book
                                          action: #selector(leftNavigationButtonDidTapped))
         navigationItem.leftBarButtonItem = leftButton
         
-        let rightButton = UIBarButtonItem(title: "Save",
+        let rightButton = UIBarButtonItem(title: "Bookshelf",
                                           style: .plain,
                                           target: self,
                                           action: #selector(rightNavigationButtonDidTapped))

@@ -15,10 +15,10 @@ class BookshelfViewController: UIViewController {
     
     private var titleLabel = UILabel()
     private var subtitleLabel = UILabel()
-    private var authorsLabel = UITextField(frame: CGRect(x: 20, y: 100, width: 300, height: 40))
+    private var authorsLabel = UITextField(frame: CGRect(x: 20, y: 100, width: 300, height: 60))
     private var averageRatingLabel = UIButton()
-    //private var headerView = UIView()
-    //var delegate = BookshelfViewController()
+    var bookItem: Item?
+    var book: Book?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ class BookshelfViewController: UIViewController {
                                          action: #selector(leftNavigationButtonDidTapped))
         navigationItem.leftBarButtonItem = leftButton
         
-        let rightButton = UIBarButtonItem(title: "Favorites",
+        let rightButton = UIBarButtonItem(title: "Review",
                                           style: .plain,
                                           target: self,
                                           action: #selector(rightNavigationButtonDidTapped))
@@ -52,6 +52,7 @@ class BookshelfViewController: UIViewController {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
         titleLabel.textColor = .black
         titleLabel.textAlignment = .center
+        titleLabel.numberOfLines = 0
         view.addSubview(titleLabel)
         
         // subtitleLabel
@@ -64,6 +65,7 @@ class BookshelfViewController: UIViewController {
         authorsLabel.font = UIFont.italicSystemFont(ofSize: 17)
         authorsLabel.textColor = .gray
         authorsLabel.placeholder = "Bookshelf name"
+        authorsLabel.layer.borderWidth = 1
         //authorsLabel.delegate = self
         view.addSubview(authorsLabel)
         
@@ -74,7 +76,21 @@ class BookshelfViewController: UIViewController {
     }
     
     @objc func buttonAction(sender: UIButton!) {
-        print("button tapped")
+        print("test")
+        guard let text = authorsLabel.text, !text.isEmpty else {return}
+        if bookItem != nil {
+            let theBook = BookController.shared.newBook(name: (bookItem?.volumeInfo.title)!, image: (bookItem?.volumeInfo.imageLinks?.smallThumbnail)!, id: (book?.id)!)
+            let newShelf = BookController.shared.newShelf(name: text, books: [theBook])
+            theBook.bookshelves.append(newShelf.name)
+            dismiss(animated: true, completion: nil)
+        } else if book != nil {
+            let newShelf = BookController.shared.newShelf(name: text, books: [book!])
+            book?.bookshelves.append(newShelf.name)
+            dismiss(animated: true, completion: nil)
+        } else {
+            let newShelf = BookController.shared.newShelf(name: text, books: [])
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     func backAction() -> Void {
@@ -104,7 +120,7 @@ class BookshelfViewController: UIViewController {
         titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         titleLabel.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.4).isActive = true
-        titleLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5).isActive = true
+        titleLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.3).isActive = true
         
         // subtitleLabel
         subtitleLabel.topAnchor == titleLabel.bottomAnchor
