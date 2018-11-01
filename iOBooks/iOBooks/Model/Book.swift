@@ -16,11 +16,12 @@ class Book: Codable {
     var read: Bool
     
     var identifier: UUID
+    var id: String
     // bookshelf identifiers
     var bookshelves: [String] = []
     
-    init(name: String, image: String, review: String = "", read: Bool = false, identifier: UUID = UUID()) {
-        (self.name, self.image, self.review, self.read, self.identifier) = (name, image, review, read, identifier)
+    init(name: String, image: String, review: String = "", read: Bool = false, identifier: UUID = UUID(), id: String) {
+        (self.name, self.image, self.review, self.read, self.identifier, self.id) = (name, image, review, read, identifier, id)
     }
 }
 
@@ -31,11 +32,15 @@ struct BookStub: Codable {
     var review: String
     var read: Bool
     
+    // Internal APP identification
     var identifier: String
+    
+    // Google API identification
+    var id: String
     
     var bookshelves: [String] = []
     
-    init(name: String, image: String, review: String, read: Bool, bookshelves: [String], identifier: String) {
-        (self.name, self.image, self.review, self.read, self.bookshelves, self.identifier) = (name, image, review, read, bookshelves, identifier)
+    init(name: String, image: String, review: String, read: Bool, bookshelves: [String], identifier: String, id: String) {
+        (self.name, self.image, self.review, self.read, self.bookshelves, self.identifier, self.id) = (name, image, review, read, bookshelves, identifier, id)
     }
 }

@@ -17,18 +17,14 @@ class BookShelvesTVC: UITableViewController {
                 print("Downloaded Books")
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    for shelf in BookController.shared.bookshelves {
+                        print(shelf.books)
+                    }
+
                 }
             } else {
                 print("Couldn't download books")
             }
-            
-        }
-        if BookController.shared.bookshelves.count < 2 {
-            let readShelf = BookController.shared.newShelf(name: "Read", books: [])
-            let favoritesShelf = BookController.shared.newShelf(name: "Favorites", books: [])
-        }
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
         }
     }
     
