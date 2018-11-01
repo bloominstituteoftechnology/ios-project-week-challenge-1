@@ -31,6 +31,8 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             book?.read = false
         }
+        guard let book = book else {return}
+        BookController.shared.updateBookOnServer(book: book)
     }
     
     @IBAction func addToNewBookshelfButton(_ sender: Any) {
