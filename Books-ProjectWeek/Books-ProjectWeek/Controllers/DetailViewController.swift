@@ -66,4 +66,35 @@ class DetailViewController: UIViewController {
             NSLog("switch broken \($0)")
         }
     }
+
+
+    
+    
+    
+    
+    @IBAction func printButton(_ sender: Any) {
+  printImage()
+        
+    }
+    
+    
+    func printImage(){
+        let printController = UIPrintInteractionController.shared
+        let printInfo = UIPrintInfo(dictionary: nil)
+        printInfo.outputType = UIPrintInfo.OutputType.general
+
+        printInfo.jobName = "Printing book"
+        
+        printInfo.outputType = .photo
+        printController.printInfo = printInfo
+        printController.printingItem = UIViewController.self
+        
+        printController.present(animated: true, completionHandler: nil)
+        
+        
+        
+    }
+    
+    
+    
 }

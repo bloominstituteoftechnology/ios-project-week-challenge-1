@@ -66,20 +66,20 @@ class Fetcher {
                 return
             }
             
-            guard let data = data else {
-                NSLog("no data fetched")
-                completion(nil, nil)
-                return
-            }
+//            guard let data = data else {
+//                NSLog("no data fetched")
+//                completion(nil, nil)
+//                return
+//            }
             
-            if data == null {
-                completion(nil, nil)
-                return
-            }
+//            if data == null {
+//                completion(nil, nil)
+//                return
+//            }
             
             var entity: T?
             do {
-                entity = try JSONDecoder().decode(T.self, from: data)
+                entity = try JSONDecoder().decode(T.self, from: data!)
             }
             catch{
                 NSLog("Error decoding entity:\(error)")
@@ -91,6 +91,6 @@ class Fetcher {
         dataTask.resume()
     }
     
-    private static let null: Data = "null".data(using: .ascii)!
+    //private static let null: Data = "null".data(using: .ascii)!
 }
 

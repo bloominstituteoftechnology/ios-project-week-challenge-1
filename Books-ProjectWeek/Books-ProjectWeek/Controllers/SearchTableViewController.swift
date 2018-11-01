@@ -35,8 +35,11 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         if let cell = cell as? ImageCellTableViewCell {
             cell.bookVolumes = volumes[indexPath.row]
             cell.textLabel?.text = volumes[indexPath.row].volumeInfo.title
+            
             return cell
         }
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         
         return cell
     }

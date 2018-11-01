@@ -22,6 +22,7 @@ class HomeTableViewController: UITableViewController {
         let nextAction: UIAlertAction = UIAlertAction(title: "Add", style: .default) { action -> Void in
             let text = (alertController.textFields?.first as! UITextField).text
             RealFirebase().createShelf(name: text!) {
+                self.reload()
                 NSLog("createShelf: \($0)")
             }
         }
@@ -37,6 +38,14 @@ class HomeTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NSLog("viewWillAppear")
+       self.reload()
+        
+        
+    }
+    
+    func reload(){
+        
+        
         let fb = RealFirebase()
         fb.getAllShelves {
             if let error = $1  {
@@ -59,8 +68,6 @@ class HomeTableViewController: UITableViewController {
                 
             }
         }
-        
-        
     }
     
     override func viewDidLoad() {
@@ -89,6 +96,9 @@ class HomeTableViewController: UITableViewController {
         return cell
     }
 
+    
+    
+    
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200

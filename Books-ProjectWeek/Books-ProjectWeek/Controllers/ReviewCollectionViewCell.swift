@@ -24,9 +24,9 @@ class ReviewCollectionViewCell: UICollectionViewCell {
             
             self.textReview.text = review.review
             if review.userId != RealFirebase().userId {
-                self.saveButton.delete(nil)
-                self.deleteButton.delete(nil)
-          
+                self.saveButton.setTitle("", for: .normal)
+                self.deleteButton.setTitle("", for: .normal)
+                self.textReview.isUserInteractionEnabled = false
                 
             }
             
