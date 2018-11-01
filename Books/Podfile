@@ -9,4 +9,5 @@ target 'Books' do
     pod 'IGListKit', '~> 3.0'
     pod 'Anchorage'
     pod 'Kingfisher', '~> 4.0'
+    pod 'Firebase/Core'
 end

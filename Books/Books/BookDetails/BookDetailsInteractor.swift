@@ -36,7 +36,7 @@ class BookDetailsInteractor: BookDetailsBusinessLogic, BookDetailsDataStore {
 //    }
     
     private func getBookQuery() -> BookQuery? {
-        guard let searchWord = searchWord else { NSLog("ERROR Unable to unwrap search word"); return nil }
+        //guard let searchWord = searchWord else { NSLog("ERROR Unable to unwrap search word"); return nil }
         return BookQuery(searchText: "test",
                          startIndex: startIndex,
                          maxResults: 1,

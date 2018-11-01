@@ -1,12 +1,21 @@
 import UIKit
 import IGListKit
 import Anchorage
+import Kingfisher
 
 protocol BookDetailsDisplayLogic: class {
     func displaySomething(viewModel: BookDetails.GetBook.ViewModel)
 }
 
-class BookDetailsViewController: UIViewController, BookDetailsDisplayLogic {
+class BookDetailsViewController: UIViewController, BookDetailsDisplayLogic, BookSectionControllerDelegate {
+    
+    weak var delegate: BookSectionControllerDelegate?
+    var bookSectionModel: BookSectionModel!
+    
+    func didSelect(bookModel: BookModel, at index: Int) {
+        delegate?.didSelect(bookModel: self.bookSectionModel.bookModels[index], at: index)
+    }
+    
     
     var interactor: BookDetailsBusinessLogic?
     var router: (NSObjectProtocol & BookDetailsRoutingLogic & BookDetailsDataPassing)?
@@ -17,8 +26,21 @@ class BookDetailsViewController: UIViewController, BookDetailsDisplayLogic {
     private var authorsLabel = UILabel()
     private var averageRatingLabel = UILabel()
     // MARK: - Logic Properties
-    private var bookModel: BookModel!
+    private var bookModel: BookModel! {
+        didSet {
+            updateViews()
+        }
+    }
     private var position: Int!
+    
+    private func updateViews() {
+        //guard let bookModel = bookModel, isViewLoaded else {return}
+        
+//        nameLabel.text = student.name
+//        hometownLabel.text = student.hometown
+//        hobbiesLabel.text = student.hobbies.joined(separator: ", ")
+//        bioLabel.text = student.bio
+    }
     
     // MARK: - Object lifecycle
     convenience init() {
@@ -30,6 +52,7 @@ class BookDetailsViewController: UIViewController, BookDetailsDisplayLogic {
         setup()
         setupComponents()
         setupConstraints()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -42,10 +65,10 @@ class BookDetailsViewController: UIViewController, BookDetailsDisplayLogic {
     func prepareForReuse() {
         //super.prepareForReuse()
         imageView.image = nil
-        titleLabel.text = "Book Title"
-        subtitleLabel.text = "subtitle"
-        authorsLabel.text = "Author"
-        averageRatingLabel.text = "Rating"
+        titleLabel.text = ""
+        subtitleLabel.text = ""
+        authorsLabel.text = ""
+        averageRatingLabel.text = ""
     }
     
     // MARK: - Load UI Methods
@@ -127,11 +150,15 @@ class BookDetailsViewController: UIViewController, BookDetailsDisplayLogic {
         //title = "BookTitle"
         view.backgroundColor = .white
         
-        imageView.image = nil
-        titleLabel.text = "Book Title"
-        subtitleLabel.text = "subtitle"
-        authorsLabel.text = "Author"
-        averageRatingLabel.text = "Rating"
+        //loadUIObjects(bookModel: bookModel, position: self)
+//        guard let thumbnail = bookModel.thumbnail else { return }
+        //imageView.image = bookModel.thumbnail
+            
+        imageView.kf.setImage(with: URL(string: "https://books.google.com/books?id=ck1EDwAAQBAJ&printsec=frontcover&dq=math&hl=en&sa=X&ved=0ahUKEwiRy8nu-7HeAhUGY6wKHUwhAocQ6wEIMTAB"))
+        titleLabel.text = "Do Not Open This Math Book:"   //bookModel.title
+        subtitleLabel.text = "Addition + Subtraction"   //bookModel.subtitle
+        authorsLabel.text = "Authors: Danica McKellar"//bookModel.authors  //fix from array of authors to author
+        averageRatingLabel.text = "N/A"
         
         // navigation
         let leftButton = UIBarButtonItem(title: "Back",

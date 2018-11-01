@@ -1,11 +1,13 @@
 import Foundation
 
 
-class Bookshelf {
+class Bookshelf: Codable {
     let name: String
-    var books: [BookModel] = []
     
-    init(name: String, books: [BookModel]) {
+    var books: [Book] = []
+    
+    init(name: String, books: [Book]) {
         (self.name, self.books) = (name, books)
     }
 }
+

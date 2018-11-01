@@ -8,9 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		3CBBC7C0F3A1B5584EA6AF5E /* Pods_Books.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF3AB3399D73A2BD9092ED6 /* Pods_Books.framework */; };
+		7B07F1A6218B3D5600A43AFB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B07F1A5218B3D5600A43AFB /* GoogleService-Info.plist */; };
+		7B07F1A8218B3E5000A43AFB /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B07F1A7218B3E5000A43AFB /* Book.swift */; };
+		7B07F1AA218B3F3500A43AFB /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B07F1A9218B3F3500A43AFB /* BookController.swift */; };
 		7B1F1577218769A1008DBC95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1F1576218769A1008DBC95 /* AppDelegate.swift */; };
 		7B1F157E218769A3008DBC95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F157D218769A3008DBC95 /* Assets.xcassets */; };
 		7B1F1581218769A3008DBC95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F157F218769A3008DBC95 /* LaunchScreen.storyboard */; };
+		7B7CB9E0218A5E7200D720FC /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7CB9DF218A5E7200D720FC /* MainTabBarController.swift */; };
+		7B7CB9E2218A5E9900D720FC /* BookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7CB9E1218A5E9900D720FC /* BookshelfViewController.swift */; };
+		7B7CB9E4218A5EA500D720FC /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7CB9E3218A5EA500D720FC /* FavoritesViewController.swift */; };
 		7B85A250218782FC0056C71A /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B85A24F218782FC0056C71A /* BookModel.swift */; };
 		7B85A252218784B90056C71A /* BookParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B85A251218784B90056C71A /* BookParser.swift */; };
 		7B85A2552187A4DA0056C71A /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B85A2542187A4DA0056C71A /* Parser.swift */; };
@@ -58,11 +64,17 @@
 /* Begin PBXFileReference section */
 		1EEC2355CD67829ADD9783FD /* Pods-Books.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Books.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Books/Pods-Books.debug.xcconfig"; sourceTree = "<group>"; };
 		2FF3AB3399D73A2BD9092ED6 /* Pods_Books.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Books.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B07F1A5218B3D5600A43AFB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7B07F1A7218B3E5000A43AFB /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		7B07F1A9218B3F3500A43AFB /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		7B1F1573218769A1008DBC95 /* Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Books.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B1F1576218769A1008DBC95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B1F157D218769A3008DBC95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B1F1580218769A3008DBC95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B1F1582218769A3008DBC95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B7CB9DF218A5E7200D720FC /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		7B7CB9E1218A5E9900D720FC /* BookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelfViewController.swift; sourceTree = "<group>"; };
+		7B7CB9E3218A5EA500D720FC /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		7B85A24F218782FC0056C71A /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		7B85A251218784B90056C71A /* BookParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookParser.swift; sourceTree = "<group>"; };
 		7B85A2542187A4DA0056C71A /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -159,6 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				7B1F1576218769A1008DBC95 /* AppDelegate.swift */,
+				7B7CB9DF218A5E7200D720FC /* MainTabBarController.swift */,
+				7B7CB9E1218A5E9900D720FC /* BookshelfViewController.swift */,
+				7B7CB9E3218A5EA500D720FC /* FavoritesViewController.swift */,
 				7B85A2722187AAE00056C71A /* Infastructure */,
 				7B1F157D218769A3008DBC95 /* Assets.xcassets */,
 				7B1F157F218769A3008DBC95 /* LaunchScreen.storyboard */,
@@ -167,6 +182,7 @@
 				7B85A29A2187C3360056C71A /* SplashScreen */,
 				7B85A2A72187C40D0056C71A /* Common */,
 				7B1F1582218769A3008DBC95 /* Info.plist */,
+				7B07F1A5218B3D5600A43AFB /* GoogleService-Info.plist */,
 			);
 			path = Books;
 			sourceTree = "<group>";
@@ -176,6 +192,8 @@
 			children = (
 				7B85A24F218782FC0056C71A /* BookModel.swift */,
 				7B85A2B52187FC480056C71A /* Bookshelf.swift */,
+				7B07F1A7218B3E5000A43AFB /* Book.swift */,
+				7B07F1A9218B3F3500A43AFB /* BookController.swift */,
 				7B85A2592187A76C0056C71A /* Result.swift */,
 				7B85A25B2187A78A0056C71A /* ErrorAPI.swift */,
 			);
@@ -430,6 +448,7 @@
 			files = (
 				7B1F1581218769A3008DBC95 /* LaunchScreen.storyboard in Resources */,
 				7B1F157E218769A3008DBC95 /* Assets.xcassets in Resources */,
+				7B07F1A6218B3D5600A43AFB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,11 +466,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Books/Pods-Books-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Anchorage/Anchorage.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -459,11 +480,13 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Anchorage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -501,6 +524,7 @@
 			files = (
 				7B85A2582187A70C0056C71A /* BookAPIImplementation.swift in Sources */,
 				7B85A2622187A8840056C71A /* APIManager.swift in Sources */,
+				7B7CB9E0218A5E7200D720FC /* MainTabBarController.swift in Sources */,
 				7B85A2A42187C3D70056C71A /* SplashScreenViewController.swift in Sources */,
 				7B85A27A2187AD320056C71A /* BooksListInteractor.swift in Sources */,
 				7B85A2942187C2770056C71A /* BookSectionModel.swift in Sources */,
@@ -518,6 +542,8 @@
 				7B85A2982187C2B10056C71A /* BookSectionCell.swift in Sources */,
 				7B85A2552187A4DA0056C71A /* Parser.swift in Sources */,
 				7B85A2A02187C3A70056C71A /* SplashScreenPresenter.swift in Sources */,
+				7B07F1A8218B3E5000A43AFB /* Book.swift in Sources */,
+				7B7CB9E4218A5EA500D720FC /* FavoritesViewController.swift in Sources */,
 				7B85A2672187A90E0056C71A /* ManagerProtocol.swift in Sources */,
 				7B85A2AD2187C4530056C71A /* SpinnerSection.swift in Sources */,
 				7B85A2872187C1840056C71A /* BookDetailsInteractor.swift in Sources */,
@@ -526,6 +552,7 @@
 				7B85A25A2187A76C0056C71A /* Result.swift in Sources */,
 				7B85A29E2187C38B0056C71A /* SplashScreenModels.swift in Sources */,
 				7B85A27E2187AD6E0056C71A /* BooksListPresenter.swift in Sources */,
+				7B07F1AA218B3F3500A43AFB /* BookController.swift in Sources */,
 				7B85A2692187A9350056C71A /* ConfiguratorManager.swift in Sources */,
 				7B85A25C2187A78A0056C71A /* ErrorAPI.swift in Sources */,
 				7B85A2912187C2390056C71A /* BookDetailsWorker.swift in Sources */,
@@ -534,6 +561,7 @@
 				7B85A2772187ACBF0056C71A /* UIWindow+Extensions.swift in Sources */,
 				7B85A2A22187C3C30056C71A /* SplashScreenRouter.swift in Sources */,
 				7B85A29C2187C3550056C71A /* SplashScreenInteractor.swift in Sources */,
+				7B7CB9E2218A5E9900D720FC /* BookshelfViewController.swift in Sources */,
 				7B85A28D2187C1EF0056C71A /* BookDetailsRouter.swift in Sources */,
 				7B85A25E2187A7DE0056C71A /* APIService.swift in Sources */,
 				7B85A28F2187C2240056C71A /* BookDetailsViewController.swift in Sources */,
