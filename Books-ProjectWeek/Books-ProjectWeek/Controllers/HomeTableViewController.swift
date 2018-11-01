@@ -81,7 +81,7 @@ class HomeTableViewController: UITableViewController {
             guard let shelves = shelves else {return cell}
             cell.books = books
             cell.shelf = shelves[indexPath.row]
-            NSLog("shelf: \(cell.shelf?.name) books: \(cell.shelf?.ids?.count)")
+           // NSLog("shelf: \(cell.shelf?.name) books: \(cell.shelf?.ids?.count)")
             return cell
         }
         

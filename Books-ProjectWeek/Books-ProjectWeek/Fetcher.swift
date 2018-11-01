@@ -36,7 +36,9 @@ class Fetcher {
         completion: @escaping (T?, Error?) -> Void
     ){
         var request = request
-        print(request.url)
+        if let url = request.url {
+            NSLog("\(request.httpMethod!) \(url)")
+        }
         
         if !(body is Nothing) {
             do {
@@ -70,6 +72,11 @@ class Fetcher {
                 return
             }
             
+            if data == null {
+                completion(nil, nil)
+                return
+            }
+            
             var entity: T?
             do {
                 entity = try JSONDecoder().decode(T.self, from: data)
@@ -83,5 +90,7 @@ class Fetcher {
         }
         dataTask.resume()
     }
+    
+    private static let null: Data = "null".data(using: .ascii)!
 }
 

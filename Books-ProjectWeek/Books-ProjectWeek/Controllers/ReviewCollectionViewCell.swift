@@ -9,22 +9,29 @@
 import UIKit
 
 class ReviewCollectionViewCell: UICollectionViewCell {
- 
+    
     var book: Volume?
     var review: Review?
+    var reloadData: (() -> Void)?
+    
+    
+    
     
     func updateView() {
-        
+        guard let book = book else {return}
         guard let review = review else {return}
-        
-        textReview.text = review.review
-        if review.userId != RealFirebase().userId {
-            saveButton.delete(nil)
-            deleteButton.delete(nil)
-        
+        DispatchQueue.main.async {
+            
+            self.textReview.text = review.review
+            if review.userId != RealFirebase().userId {
+                self.saveButton.delete(nil)
+                self.deleteButton.delete(nil)
+          
+                
+            }
+            
         }
         
-
         
     }
     
@@ -38,29 +45,36 @@ class ReviewCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var deleteButton: UIButton!
     
     @IBAction func save(_ sender: Any) {
-    guard let book = book else {return}
+        guard let book = book else {return}
         RealFirebase().addReview(review: textReview.text, bookId: book.id) {
-
+            
             NSLog("could not save book \($0)")
-self.updateView()
-        }
+            guard let review = self.review else {return}
+            DispatchQueue.main.async {
+               
+            self.review = Review(userId:review.userId, review:self.textReview.text, bookId:review.bookId  )
+            self.updateView()
+            }
+            }
     }
     
     
     @IBAction func deleteReview(_ sender: Any) {
-    
+        
         guard let book = book else {return}
         RealFirebase().deleteReview(bookId: book.id) {
             
-           NSLog("could not save book \($0)")
+            NSLog("could not save book \($0)")
             self.updateView()
+            self.reloadData?()
         }
-    
-    
+        
+        
     }
- 
     
     
     
-
+    
+    
 }
+
