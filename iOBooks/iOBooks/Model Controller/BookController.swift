@@ -14,10 +14,6 @@ class BookController: Codable {
     
     var bookSearch: BookSearch?
     var bookshelves: [Bookshelf] = []
-    //        didSet {
-    //            uploadBooks(shelves: bookshelves)
-    //        }
-    
     
     func newBook(name: String, image: String, id: String) -> Book {
         return Book(name: name, image: image, review: "", read: false, id: id)

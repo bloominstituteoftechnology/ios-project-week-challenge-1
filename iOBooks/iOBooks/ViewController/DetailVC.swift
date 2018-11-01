@@ -17,17 +17,22 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var myReviewButton: UIButton!
     
     @IBAction func readSwitchAction(_ sender: Any) {
+        guard let readBookshelf = BookController.shared.bookshelves.first(where: ( { $0.name == "Read" } )) else {
+            print("failed")
+            return}
+        // check to make sure it has more than 0
+        
         switch readSwitch.isOn {
         case true:
-            book?.bookshelves.append(BookController.shared.bookshelves[0].name)
-            BookController.shared.bookshelves[0].books.append(book!)
+            book?.bookshelves.append(readBookshelf.name)
+            readBookshelf.books.append(book!)
             book?.read = true
         case false:
             guard let indexPath = book?.bookshelves.firstIndex(of: "Read" ) else {return}
             book?.bookshelves.remove(at: indexPath)
             
-            guard let bookIndex = BookController.shared.bookshelves[0].books.firstIndex(where: { $0.name == book?.name }) else {return}
-            BookController.shared.bookshelves[0].books.remove(at: bookIndex)
+            guard let bookIndex = readBookshelf.books.firstIndex(where: { $0.name == book?.name }) else {return}
+            readBookshelf.books.remove(at: bookIndex)
             
             book?.read = false
         }
@@ -109,7 +114,7 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             actionSheet.addAction(alert)
         }
         actionSheet.addAction(cancel)
-    
+        
         present(actionSheet, animated: true, completion: nil)
     }
     
