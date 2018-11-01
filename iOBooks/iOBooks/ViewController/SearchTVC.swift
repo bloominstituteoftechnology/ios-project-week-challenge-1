@@ -52,12 +52,33 @@ class SearchTVC: UITableViewController, UISearchBarDelegate, SearchCellDelegate 
                 
                 let bookShelf = shelf
                 if let imageLinks = book.volumeInfo.imageLinks {
-                    let bookObject = BookController.shared.newBook(name: book.volumeInfo.title, image:(imageLinks.smallThumbnail), id: book.id)
-                    bookShelf.books.append(bookObject)
-                    bookObject.bookshelves.append(bookShelf.name)
+                    // Check for book already existing in another bookshelf
+                    // If not, then we create a new book
                     
-                    // Upload to Firebase
-                    BookController.shared.uploadBook(book: bookObject)
+                    for shelf in BookController.shared.bookshelves {
+                        for existingBook in shelf.books {
+                            if existingBook.id == book.id {
+                                // Means book already exists so we add the shelf record instead of creating a new book
+                                existingBook.bookshelves.append(bookShelf.name)
+                                print("Existing Book: \(existingBook) with id: \(existingBook.id)")
+                                // Upload to Firebase - MIGHT CAUSE ERRORS > WHO KNOWS
+                                BookController.shared.uploadBook(book: existingBook)
+                                return
+                            } else {
+                                // Means this is actually a new book
+                                let bookObject = BookController.shared.newBook(name: book.volumeInfo.title, image:(imageLinks.smallThumbnail), id: book.id)
+                                
+                                bookShelf.books.append(bookObject)
+                                bookObject.bookshelves.append(bookShelf.name)
+                                
+                                // Upload to Firebase
+                                BookController.shared.uploadBook(book: bookObject)
+                                return
+                            }
+                        }
+                    }
+
+                    
                 }
             }
             alertList.append(option)

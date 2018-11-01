@@ -20,6 +20,7 @@ class BookShelvesTVC: UITableViewController {
                     for shelf in BookController.shared.bookshelves {
                         print(shelf.books)
                     }
+                    self.navigationItem.title = "Your Bookshelves"
 
                 }
             } else {

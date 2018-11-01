@@ -41,6 +41,9 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let book = book {
+            self.navigationItem.title = "\(book.name)"
+        }
         tableView.delegate = self
         tableView.dataSource = self
         updateViews()
@@ -96,7 +99,6 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 book.bookshelves.append(bookShelf.name)
                 self.updateViews()
                 self.tableView.reloadData()
-                
             }
             alertList.append(option)
         }

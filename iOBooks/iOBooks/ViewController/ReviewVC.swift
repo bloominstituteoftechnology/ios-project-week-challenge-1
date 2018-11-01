@@ -15,6 +15,8 @@ class ReviewVC: UIViewController {
         if let text = textView.text {
             book?.review = text
         }
+        guard let book = book else {return}
+        BookController.shared.updateBookOnServer(book: book)
         navigationController?.popViewController(animated: true)
     }
     

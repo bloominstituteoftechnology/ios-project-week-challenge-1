@@ -79,6 +79,7 @@ class BookController: Codable {
     
     func createBookshelvesFromBooks(_ books:[Book]) {
         var shelves: [Bookshelf] = []
+        
         for book in books {
             print("Books Bookshelves: \(book.bookshelves)")
             for shelf in book.bookshelves {
@@ -121,9 +122,15 @@ class BookController: Codable {
         
         print("sameShelvesCount: \(sameBookShelves.count)")
         print("differentShelvesCount: \(differentBookShelves.count)")
+        let emptyBookshelves = bookshelves.filter( { $0.books.isEmpty })
+        print("emptyBookShelves: \(emptyBookshelves.count)")
         
         bookshelves = sameBookShelves
         bookshelves += differentBookShelves
+        bookshelves += emptyBookshelves
+        
+        
+        
         
         print("finalShelvesCount: \(bookshelves.count)")
     }
@@ -220,13 +227,39 @@ class BookController: Codable {
         dataTask.resume()
     }
     
+    func updateBookOnServer(book: Book, completion: @escaping (_ success: Bool) -> Void = { _ in }) {
+        let bookStub = bookToStub(book: book)
+        
+        var req = URLRequest(url: baseURL.appendingPathComponent("/bookStubs").appendingPathComponent(bookStub.identifier).appendingPathExtension("json"))
+        req.httpMethod = "PUT"
+        
+        do {
+            let jsonData = try JSONEncoder().encode(bookStub)
+            req.httpBody = jsonData
+        } catch {
+            NSLog("Couldn't encode stubs into JSON: \(error)")
+            completion(false)
+            return
+        }
+        
+        let dataTask = URLSession.shared.dataTask(with: req) { data, _ , err in
+            if let err = err {
+                NSLog("error creating datatask: \(err)")
+                completion(false)
+                return
+            }
+            
+            if let data = data, let utf8Rep = String(data: data, encoding: .utf8) {
+                print("response: ", utf8Rep)
+            } else {
+                print("no readable data received as response")
+            }
+            
+        }
+        dataTask.resume()
+    }
     
-    //    func deleteBook(book: Book, completion: @escaping (_ success: Bool) -> Void = { _ in }) {
-    //
-    //
-    //
-    //
-    //    }
+    
 }
 
 

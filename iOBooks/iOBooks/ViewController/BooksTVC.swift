@@ -12,6 +12,9 @@ class BooksTVC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let bookshelf = self.bookshelf {
+            self.navigationItem.title = "\(bookshelf.name)"
+        }
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
