@@ -14,7 +14,7 @@
 		476E8850218A3F830085DB3C /* MLCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476E884E218A3F830085DB3C /* MLCollectionViewController.swift */; };
 		476E8853218A3F9A0085DB3C /* MLController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476E8852218A3F9A0085DB3C /* MLController.swift */; };
 		476E8855218A3FCB0085DB3C /* MLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476E8854218A3FCB0085DB3C /* MLViewController.swift */; };
-		476E8859218A40420085DB3C /* MLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476E8858218A40420085DB3C /* MLModel.swift */; };
+		476E8859218A40420085DB3C /* MLFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476E8858218A40420085DB3C /* MLFeed.swift */; };
 		4782FAB8218774C4001811A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4782FAB7218774C4001811A6 /* AppDelegate.swift */; };
 		4782FABD218774C4001811A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4782FABB218774C4001811A6 /* Main.storyboard */; };
 		4782FABF218774C5001811A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4782FABE218774C5001811A6 /* Assets.xcassets */; };
@@ -40,7 +40,7 @@
 		476E884E218A3F830085DB3C /* MLCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLCollectionViewController.swift; sourceTree = "<group>"; };
 		476E8852218A3F9A0085DB3C /* MLController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLController.swift; sourceTree = "<group>"; };
 		476E8854218A3FCB0085DB3C /* MLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLViewController.swift; sourceTree = "<group>"; };
-		476E8858218A40420085DB3C /* MLModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLModel.swift; sourceTree = "<group>"; };
+		476E8858218A40420085DB3C /* MLFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFeed.swift; sourceTree = "<group>"; };
 		4782FAB4218774C4001811A6 /* BookShelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookShelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4782FAB7218774C4001811A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4782FABC218774C4001811A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 				476E884E218A3F830085DB3C /* MLCollectionViewController.swift */,
 				476E8854218A3FCB0085DB3C /* MLViewController.swift */,
 				476E8852218A3F9A0085DB3C /* MLController.swift */,
-				476E8858218A40420085DB3C /* MLModel.swift */,
+				476E8858218A40420085DB3C /* MLFeed.swift */,
 			);
 			path = "My Library";
 			sourceTree = "<group>";
@@ -317,7 +317,7 @@
 				47EA24BF2188F8B8007E08B5 /* BookStoreDetailViewController.swift in Sources */,
 				4782FAF02187773A001811A6 /* BookController.swift in Sources */,
 				475B1A7E218B9712001DD2BB /* ReviewViewController.swift in Sources */,
-				476E8859218A40420085DB3C /* MLModel.swift in Sources */,
+				476E8859218A40420085DB3C /* MLFeed.swift in Sources */,
 				47EA24BD2188F47C007E08B5 /* BookStoreTableViewController.swift in Sources */,
 				47EA24B92188E3F9007E08B5 /* BookFeed.swift in Sources */,
 				476E8850218A3F830085DB3C /* MLCollectionViewController.swift in Sources */,

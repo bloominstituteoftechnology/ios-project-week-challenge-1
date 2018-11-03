@@ -12,7 +12,7 @@ import Firebase
 
 class ReviewViewController: UIViewController {
 
-    var mL: MyLibraryModel?
+    var mL: MLFeed?
     var mLC: MyLibraryController?
     
     override func viewDidLoad() {

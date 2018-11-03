@@ -12,7 +12,7 @@ import FirebaseDatabase
 
 class BookStoreDetailViewController: UIViewController {
     
-    var mL: MyLibraryModel?
+    var mL: MLFeed?
     var mLC: MyLibraryController?
     var notification: LocalNotificationHelper?
     
@@ -35,7 +35,7 @@ class BookStoreDetailViewController: UIViewController {
             DescriptionTextView.text = "No Book Description Available"
         }
         
-        // UI borders
+        // UI borders on Textview 
         DescriptionTextView.layer.borderWidth = 0.5
         
         // load image

@@ -15,6 +15,7 @@ private let reuseIdentifier = "collectionviewell"
 class MLCollectionViewController: UICollectionViewController {
     
     var bsvd: BookStoreDetailViewController?
+    var mlf: MLFeed?
     
     override func viewDidLoad() {
         super.viewDidLoad()

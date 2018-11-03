@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MyLibraryModel: Codable, Equatable {
+class MLFeed: Codable, Equatable {
     
     let identifier: String
     var bookshelf: String
@@ -16,14 +16,14 @@ class MyLibraryModel: Codable, Equatable {
     
     struct Book: Equatable, Codable {
         let title: String?
-        //let image: String?
+        let image: String?
         let author: String
         var reviews: [Book.Review]
         var isRead: Bool // toggle
         
         init(title:String, image:String, author:String, isRead: Bool = false) {
             self.title = title
-            //self.image = image
+            self.image = image
             self.author = author
             self.isRead = isRead
             self.reviews = []
@@ -45,7 +45,7 @@ class MyLibraryModel: Codable, Equatable {
             self.books = []
         }
     
-    static func == (lhs: MyLibraryModel, rhs: MyLibraryModel) -> Bool {
+    static func == (lhs: MLFeed, rhs: MLFeed) -> Bool {
         return lhs.identifier == rhs.identifier && lhs.bookshelf == rhs.bookshelf && rhs.books == lhs.books
     }
     
@@ -69,5 +69,9 @@ class MyLibraryModel: Codable, Equatable {
         self.identifier = identifier
         self.books = book
         
+    }
+    
+    struct MLFeedResults {
+        var mLBooks : [MLFeed]
     }
 }

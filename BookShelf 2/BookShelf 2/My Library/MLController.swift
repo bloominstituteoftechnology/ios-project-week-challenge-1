@@ -10,7 +10,7 @@ import Foundation
 
 class MyLibraryController {
     
-    var mLM : [MyLibraryModel] = []
+    var mLM : [MLFeed] = []
     
     // make functions to fetch, save , update, and change from / to firebase
     
@@ -53,7 +53,7 @@ class MyLibraryController {
 //    }
     
 
-    func createBook(mLM: MyLibraryModel.Book,
+    func createBook(mLM: MLFeed.Book,
                     title:String, author:String,
                     completion: @escaping (Error?) -> Void ){
     }
