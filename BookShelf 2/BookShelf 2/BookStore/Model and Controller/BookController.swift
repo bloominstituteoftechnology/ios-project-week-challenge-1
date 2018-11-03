@@ -49,12 +49,12 @@ class BookController {
             
             do {
                 let searchResults = try JSONDecoder().decode(BookFeed.self, from: data)
-                print(searchResults)
+                // print(searchResults)
                 self.bookRecords = searchResults.items
                 completion()
             } catch {
                 NSLog("Unable to decode data into book entries\(error)")
-                print(String(data:data, encoding: .utf8) ?? "" )
+                // print(String(data:data, encoding: .utf8) ?? "" )
                 completion()
             }
         }

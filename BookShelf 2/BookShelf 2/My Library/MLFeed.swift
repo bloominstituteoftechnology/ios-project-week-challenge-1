@@ -71,7 +71,13 @@ class MLFeed: Codable, Equatable {
         
     }
     
-    struct MLFeedResults {
+    // Firebase JSON
+
+    
+    struct MLBookResults {
         var mLBooks : [MLFeed]
     }
+    
+    
+    
 }

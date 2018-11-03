@@ -10,6 +10,7 @@
 		475B1A7A218B5EF7001DD2BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 475B1A79218B5EF7001DD2BB /* GoogleService-Info.plist */; };
 		475B1A7C218B7AF7001DD2BB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475B1A7B218B7AF7001DD2BB /* CollectionViewCell.swift */; };
 		475B1A7E218B9712001DD2BB /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475B1A7D218B9712001DD2BB /* ReviewViewController.swift */; };
+		475BE8FC218DE08D00A224AD /* MyLibraryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475BE8FB218DE08D00A224AD /* MyLibraryTableViewController.swift */; };
 		4767B6E2218BA20D00EB5E0E /* Notification Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4767B6E1218BA20D00EB5E0E /* Notification Helper.swift */; };
 		476E8850218A3F830085DB3C /* MLCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476E884E218A3F830085DB3C /* MLCollectionViewController.swift */; };
 		476E8853218A3F9A0085DB3C /* MLController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476E8852218A3F9A0085DB3C /* MLController.swift */; };
@@ -36,6 +37,7 @@
 		475B1A79218B5EF7001DD2BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		475B1A7B218B7AF7001DD2BB /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = "/Users/jerrickwarren/Desktop/ios3 Lambda/Week 4 : project week/ios-project-week-challenge-1/BookShelf 2/BookShelf 2/My Library/CollectionViewCell.swift"; sourceTree = "<absolute>"; };
 		475B1A7D218B9712001DD2BB /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		475BE8FB218DE08D00A224AD /* MyLibraryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryTableViewController.swift; sourceTree = "<group>"; };
 		4767B6E1218BA20D00EB5E0E /* Notification Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification Helper.swift"; sourceTree = "<group>"; };
 		476E884E218A3F830085DB3C /* MLCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLCollectionViewController.swift; sourceTree = "<group>"; };
 		476E8852218A3F9A0085DB3C /* MLController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				475B1A7B218B7AF7001DD2BB /* CollectionViewCell.swift */,
 				476E884E218A3F830085DB3C /* MLCollectionViewController.swift */,
 				476E8854218A3FCB0085DB3C /* MLViewController.swift */,
+				475BE8FB218DE08D00A224AD /* MyLibraryTableViewController.swift */,
 				476E8852218A3F9A0085DB3C /* MLController.swift */,
 				476E8858218A40420085DB3C /* MLFeed.swift */,
 			);
@@ -316,6 +319,7 @@
 			files = (
 				47EA24BF2188F8B8007E08B5 /* BookStoreDetailViewController.swift in Sources */,
 				4782FAF02187773A001811A6 /* BookController.swift in Sources */,
+				475BE8FC218DE08D00A224AD /* MyLibraryTableViewController.swift in Sources */,
 				475B1A7E218B9712001DD2BB /* ReviewViewController.swift in Sources */,
 				476E8859218A40420085DB3C /* MLFeed.swift in Sources */,
 				47EA24BD2188F47C007E08B5 /* BookStoreTableViewController.swift in Sources */,

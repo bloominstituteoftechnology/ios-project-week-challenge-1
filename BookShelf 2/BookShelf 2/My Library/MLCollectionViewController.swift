@@ -16,13 +16,15 @@ class MLCollectionViewController: UICollectionViewController {
     
     var bsvd: BookStoreDetailViewController?
     var mlf: MLFeed?
+    var mlc = MyLibraryController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        
-//        bsvd?.refBooks.observe(.value, with: { snapshot in
-//            print(snapshot.value as Any)
-//        })
+        
+        
+        bsvd?.refBooks.observe(.value, with: { snapshot in
+            print(snapshot.value as Any)
+        })
 
         func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
@@ -31,7 +33,15 @@ class MLCollectionViewController: UICollectionViewController {
                 print(snapshot.value as Any)
             })
             
+            BookController.shared.fetchBooks(searchTerm: "My Little Pony"){
+                print()
+            }
+            
+            mlc.fetchLibraryBooks  {
+                DispatchQueue.main.async { self.collectionView.reloadData() }
         }
+            
+    }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -55,20 +65,21 @@ class MLCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return mlc.mLM.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
         // Configure the cell
-    
+        
+        
         return cell
     }
 

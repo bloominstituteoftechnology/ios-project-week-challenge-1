@@ -44,7 +44,7 @@ class BookStoreDetailViewController: UIViewController {
         refBooks = Database.database().reference().child("Books")
         
         refBooks.observe(.value, with: { snapshot in
-            print(snapshot.value as Any)
+           // print(snapshot.value as Any)
         })
         
     }
@@ -60,6 +60,8 @@ class BookStoreDetailViewController: UIViewController {
         refBooks.child(key!).setValue(book)
         
         notification?.scheduleBookDelievery()
+        
+        print("Book was added")
         
     }
     
