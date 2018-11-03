@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>150502820152-m4t093rslb0ttljfq8idqoajuosnkgqh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.150502820152-m4t093rslb0ttljfq8idqoajuosnkgqh</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDAIiUHvmi0bS5FPnn8w-v6BsDptON-tRE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>150502820152</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.jerrickwarren.BookShelf</string>
+	<key>PROJECT_ID</key>
+	<string>booksapp-687db</string>
+	<key>STORAGE_BUCKET</key>
+	<string>booksapp-687db.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:150502820152:ios:a80fd426dce640f8</string>
+	<key>DATABASE_URL</key>
+	<string>https://booksapp-687db.firebaseio.com</string>
+</dict>
+</plist>
