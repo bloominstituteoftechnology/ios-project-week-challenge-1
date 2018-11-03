@@ -6,6 +6,7 @@
 //  Copyright © 2018 Jerrick Warren. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class MyLibraryController {
@@ -16,11 +17,12 @@ class MyLibraryController {
     
     // make functions to fetch, save , update, and change from / to firebase
     
-    static let baseURL = URL(string: "https://booksapp-687db.firebaseio.com/)")!
+    static let baseURL = URL(string: "https://booksapp-687db.firebaseio.com/")!
     
     func fetchLibraryBooks(completion: @escaping () -> Void) {
         
         let requestURL = MyLibraryController.baseURL.appendingPathExtension("json")
+        // https://booksapp-687db.firebaseio.com/.json
         
         URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
             if let error = error {
@@ -35,12 +37,13 @@ class MyLibraryController {
                 return
             }
             
-            let jsonDecoder = JSONDecoder()
-            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+           // let jsonDecoder = JSONDecoder()
+            // jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
             
             do{
-                let libraryResults = try jsonDecoder.decode(BookApp.self, from: data)
-                print(libraryResults)
+                let bookApp = try JSONDecoder().decode([BookApp].self, from: data)
+                print(bookApp)
+                print(String(data:data, encoding: .utf8) ?? "" )
               
                 
                 completion()
