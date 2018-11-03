@@ -41,12 +41,13 @@ class MyLibraryController {
             do{
                 let libraryResults = try jsonDecoder.decode(BookApp.self, from: data)
                 print(libraryResults)
-              //  self.libraryRecords = ????
+              
                 
                 completion()
             } catch {
                 NSLog("Error encoding message: \(error)")
                 completion()
+                print(String(data:data, encoding: .utf8) ?? "" )
                 return
             }
             }.resume()
@@ -82,7 +83,7 @@ class MyLibraryController {
     }
 
     struct MLFeedResults: Codable {
-        var books: [BookApp]
+        var books: BookApp
 }
     
 }
