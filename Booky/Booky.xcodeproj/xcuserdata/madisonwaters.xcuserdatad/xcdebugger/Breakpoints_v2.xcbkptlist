@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../solo/networking-students/ios-firebase/Network Helpers/Firebase.swift"
+            timestampString = "566408010.208272"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "save(item:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 1 of static Booky.Firebase.save(item: A, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "Booky"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madisonwaters/Desktop/iOS-dev/ios4/solo/networking-students/ios-firebase/Network%20Helpers/Firebase.swift"
+                  timestampString = "566408010.400408"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "8">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool) -&gt; () in default argument 2 of static Booky.Firebase.save(item: A, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "Booky"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madisonwaters/Desktop/iOS-dev/ios4/solo/networking-students/ios-firebase/Network%20Helpers/Firebase.swift"
+                  timestampString = "566408010.403643"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Booky.Firebase.save(item: A, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "Booky"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madisonwaters/Desktop/iOS-dev/ios4/solo/networking-students/ios-firebase/Network%20Helpers/Firebase.swift"
+                  timestampString = "566408010.4066499"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "50">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Booky/View Controllers/BookDetailViewController.swift"
+            timestampString = "566408010.209218"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "addToBookshelf(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Booky.BookDetailViewController.addToBookshelf(Any) -&gt; ()"
+                  moduleName = "Booky"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madisonwaters/Desktop/iOS-dev/ios4/project-week/google-books/ios-project-week-challenge-1/Booky/Booky/View%20Controllers/BookDetailViewController.swift"
+                  timestampString = "566408010.416937"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "818">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Booky.BookDetailViewController.addToBookshelf(Any) -&gt; ()"
+                  moduleName = "Booky"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madisonwaters/Desktop/iOS-dev/ios4/project-week/google-books/ios-project-week-challenge-1/Booky/Booky/View%20Controllers/BookDetailViewController.swift"
+                  timestampString = "566408010.4198869"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
