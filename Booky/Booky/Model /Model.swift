@@ -16,7 +16,7 @@ class Model {
     var delegate: ModelUpdateClient?
     
     var bookshelf: Bookshelf?
-    
+    var bookshelfNames: [String] = []
     var bookshelves: [Bookshelf] = []
     
     var book: Book?

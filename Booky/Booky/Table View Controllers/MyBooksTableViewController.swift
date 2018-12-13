@@ -14,6 +14,21 @@ class MyBooksTableViewController: UITableViewController, ModelUpdateClient {
                 }
             }
         }
+        
+        print("Bookshelf Names: \(Model.shared.bookshelfNames)")
+        
+        guard let bookshelf = bookshelf else { return }
+        
+        let names = Model.shared.bookshelfNames.map { $0 }
+        var nameString = ""
+        for index in names { nameString.append("\(index)") }
+        let nameList = nameString
+        print("nameList \(nameList)")
+        
+        if bookshelf.book.id == nameList{
+            print("Bookshelf Names2: \(Model.shared.bookshelfNames)")
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -39,14 +54,14 @@ class MyBooksTableViewController: UITableViewController, ModelUpdateClient {
         let bookshelves = Model.shared.bookshelves[indexPath.row]
         
         // Configure the cell...
-        cell.titleLabel.text = bookshelves.volumeInfo.title
-        cell.publisherLabel.text = bookshelves.volumeInfo.publisher
+        cell.titleLabel.text = bookshelves.book.volumeInfo.title
+        cell.publisherLabel.text = bookshelves.book.volumeInfo.publisher
         
-        let urlToImage = bookshelves.volumeInfo.imageLinks?.thumbnail
+        let urlToImage = bookshelves.book.volumeInfo.imageLinks?.thumbnail
         let imageURL = URL(string: urlToImage ?? " ")!
         cell.bookImageView.load(url: imageURL)
         
-        let authors = bookshelves.volumeInfo.authors.map { $0 }
+        let authors = bookshelves.book.volumeInfo.authors.map { $0 }
         var authorString = ""
         for index in authors ?? [] { authorString.append("\(index)") }
         cell.authorLabel.text = authorString
@@ -64,18 +79,37 @@ class MyBooksTableViewController: UITableViewController, ModelUpdateClient {
         }
     }
  
-    // MARK: - Navigation
+    // MARK: - Navigation // BackToDetail
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "BackToDetail" {
+            guard let indexPath = tableView.indexPathForSelectedRow,
+                let destination = segue.destination as? BookDetailViewController else { return }
+            let bookshelf = Model.shared.bookshelves[indexPath.row]
+            
+//            destination.bookDetailPublisherLabel.text = bookshelf.book.volumeInfo.publisher
+//            destination.bookDetailTitleLabel.text = bookshelf.book.volumeInfo.title
+//            
+//            let urlToImage = bookshelf.book.volumeInfo.imageLinks?.thumbnail
+//            let imageURL = URL(string: urlToImage ?? " ")!
+//            destination.bookImageView.load(url: imageURL)
+//            
+//            let authors = bookshelf.book.volumeInfo.authors.map { $0 }
+//            var authorString = ""
+//            for index in authors ?? [] { authorString.append("\(index)") }
+//            destination.bookDetailAuthorLabel.text = authorString
+            destination.bookshelf = bookshelf
+            
+        }
     }
 
     var book: Book?
     var books: [Book] = []
     
     var bookshelf: Bookshelf?
+    var bookshelfNames: [String] = []
     var bookshelves: [Bookshelf] = []
     
 }
